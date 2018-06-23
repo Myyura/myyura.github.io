@@ -3,7 +3,7 @@ permalink: /:year/:month/:day/:title.html
 paginate: 10 # pagination based on number of posts
 paginate_path: "page:num"
 exclude: ["README.md"] # files to exclude
-highlighter: pygments #rouge #true
+highlighter: rouge
 markdown: kramdown
 
 defaults:
