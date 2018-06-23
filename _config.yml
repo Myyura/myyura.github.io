@@ -15,7 +15,7 @@ defaults:
 
 description: Myyura
 # gavatar头像及Favicon
-gavatar: https://myyura.github.io/myyura.github.io/assets/ico/enmaai.jpg
+gavatar: https://myyura.github.io/assets/ico/enmaai.jpg
 favicon: 
 
 author:
@@ -29,4 +29,4 @@ categories_path: categories.html
 tags_path: tags.html
 
 #BASE_PATH:
-BASE_PATH: https://myyura.github.io/myyura.github.io
+BASE_PATH: https://myyura.github.io/
