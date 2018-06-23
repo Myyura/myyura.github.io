@@ -1,10 +1,8 @@
 ---
-
 layout: post
 title: Kramdown 语法
-category:  工具使用
-tags: [markdown, kramdown]
-
+category: test
+tags: test
 ---
 
 本文主要介绍了`kramdown`方面的一些语法。具体的可以参看[kramdown语法](http://kramdown.gettalong.org/syntax.html)
