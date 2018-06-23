@@ -1,0 +1,32 @@
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+permalink: /:year/:month/:day/:title.html
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
+exclude: ["README.md"] # files to exclude
+highlighter: pygments #rouge #true
+markdown: kramdown
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: "Myyura's world"
+
+description: Myyura
+# gavatar头像及Favicon
+gavatar: http://myyura.github.io/myyura.github.io/assets/ico/enmaai.jpg
+favicon: 
+
+author:
+  name: Myyura
+  email: zz940521@gmail.com
+  github: Myyura
+  bio: 愛と妄執を積み重ねて、幾星霜、世界はいつでも哀しみに満ちている。
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+
+#BASE_PATH:
+BASE_PATH: http://myyura.github.io/myyura.github.io
