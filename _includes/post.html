@@ -69,36 +69,7 @@
 		</ul>
 		{% endunless %}  
 
-<!--
-		<div>
-      <section class="share col-sm-6">
-        <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text={{page.title | encode}}{% if site.author.twitter%}&via={{site.author.twitter}}{% endif %}"
-           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-          <i class="fa fa-twitter fa-lg"></i>
-          Twitter
-        </a>
-        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
-           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-          <i class="fa fa-facebook fa-lg"></i>
-          Facebook
-        </a>
-        <a class="btn btn-default btn-sm gplus"
-           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
-          <i class="fa fa-google-plus fa-lg"></i>
-          Google+
-        </a>
-      </section>
-
-      <section class="col-sm-6 author">
-        <img src="{{site.gavatar}}" class="img-rounded author-image" />
-        <h4 class="section-title author-name">{{site.author.name}}</h4>
-        <p class="author-bio">{{site.author.bio}}</p>
-      </section>
-    </div>
-	-->
-
-    <div class="clearfix"></div>
+  <div class="clearfix"></div>
 
 		<ul class="pager">
 		  {% if page.previous %}
@@ -113,26 +84,8 @@
 		  {% endif %}
 		</ul>
 		<hr/>
-		<!-- 多说评论框 start -->
-		<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ page.url }}"></div>
-		<!-- 多说评论框 end -->
-		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-		<script type="text/javascript">
-		var duoshuoQuery = {short_name:"joshualeung"};
-			(function() {
-				var ds = document.createElement('script');
-				ds.type = 'text/javascript';ds.async = true;
-				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-				ds.charset = 'UTF-8';
-				(document.getElementsByTagName('head')[0] 
-				 || document.getElementsByTagName('body')[0]).appendChild(ds);
-			})();
-			</script>
-		<!-- 多说公共JS代码 end -->
 	</div>
 	
-	<div class="col-sm-2 sidebar-2">
-	
-	</div>
+	<div class="col-sm-2 sidebar-2"></div>
 </article>
 <div class="clearfix"></div>
