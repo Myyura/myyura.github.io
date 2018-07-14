@@ -23,7 +23,7 @@ tags: mathematics, number-theory, integer-sequence
 - 兔子永不死去
 那么在第$n \in \mathbb{N}_{>0}$个月，有多少对兔子呢？
 
-在数学上，令$F_n, n \in \mathbb{N}_{\ge 0}$为第$n$个月时存活的兔子（对），我们可以定义如下的递推式来描述这个问题：
+在数学上，令$F_n, n \in \mathbb{N}_{\ge 0}$为第$n$个月时存活的兔子（对），我们可以定义如下的递推式来描述这个问题
 
 $$
 \begin{align}
