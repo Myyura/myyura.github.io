@@ -3,7 +3,7 @@ layout: post
 mathjax: true
 title: 算一・素性测试
 category: algorithm
-tags: algorithm, primality-test, number-theory, mathematics
+tags: [algorithm, primality-test, number-theory, mathematics]
 ---
 
 素性测试(Primality test)

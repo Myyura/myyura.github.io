@@ -3,7 +3,7 @@ layout: post
 mathjax: true
 title: 数音・补[之一]・斐波那契数列
 category: mathematics
-tags: mathematics, number-theory, integer-sequence
+tags: [mathematics, number-theory, integer-sequence]
 ---
 
 斐波那契数列(Fibonacci number)
