@@ -23,7 +23,7 @@ def brute_force(n):
         return True
     return False
 {% endhighlight %}
-由于近来正在学习如何玩蛇，因而我选择使用蟒蛇来描述（实现）算法---它其实还算不错，相对于贴近自然语言并且正被大量使用着。
+由于近来正在学习如何玩蛇，因而我选择使用蟒蛇来描述（实现）算法---它其实还算不错，相对于贴近自然语言并且正被大量使用着。另一方面Mathjax似乎并不支持几个常用的算法包，因而目前我决定以伪代码与蟒蛇混写来描述算法---它可能有时候看起来有点遭，但。
 
 很快就能注意到$2$和$3$的倍数是相当好剔除的---令$k$为一个自然数，则显然$6k$，$6k + 2$和$6k + 4$能够被$2$整除，且有$6k + 3$能够被$3$整除，因而一个改进的枚举算法已经呼之欲出了，即
 {% highlight python %}
@@ -113,7 +113,7 @@ $$
 
 于是很容易的我们可以设计出如下素性检验的算法
 {% highlight python %}
-def fermat(n, k):
+def fermat(n):
     # we always assume that n >= 2
     if n <= 3:
         return True
@@ -121,9 +121,8 @@ def fermat(n, k):
         return False
 
     a = random.randint(2, n - 2)
-    for _ in range(0, k):
-        if power(a, n - 1, n) != 1:
-            return False
+    if power(a, n - 1, n) != 1:
+        return False
     return True
 {% endhighlight %}
 其中$\text{power}(a, n-1, n)$会计算$a^{n-1} \mod n$，我们使用了一个被称之为快速幂取模的算法，他可以在对数时间内计算出$a^{n-1} \mod n$。受益于这个算法，费马素性检验算法的时间复杂度为$\mathcal{O}(\log n)$。
@@ -139,7 +138,7 @@ def fermat(n, k):
 
 这个定理的证明相对容易，由于$a^2 \equiv 1 \pmod p$，我们知道$p$能够整除$(a+1)(a-1)$，而这会给出$a=1$或者$a=p-1$。
 
-那么，若$p$是一个奇素数，$a$是一个与$p$互素的整数，由费马小定理我们可以知道$a^{p-1} \equiv 1 \pmod  p$，由于$p$是一个奇数，那么它可以被写为$a^{2k} \equiv 1  \pmod p$对于某个整数$k$。由上面提到的定理我们有
+那么，若$p$是一个奇素数，$a$是一个小于$p$的正整数，由费马小定理我们可以知道$a^{p-1} \equiv 1 \pmod  p$，由于$p$是一个奇数，那么它可以被写为$a^{2k} \equiv 1  \pmod p$对于某个整数$k$。由上面提到的定理我们有
 
 $$a^k \equiv 1  \pmod p$$
 
@@ -147,12 +146,41 @@ $$a^k \equiv 1  \pmod p$$
 
 $$a^k \equiv -1  \pmod p$$
 
-换言之，我们有如下定理
-> 令$p$为一个奇素数。记$p-1=2^kd$，其中$d$是奇数，$s$是一个正整数。令$a$为一个与$p$互素的整数，则下列两项至少有一项成立
+如果我们不断重复这个过程，则可以得到如下定理
+> 令$p$为一个奇素数。记$p-1=2^kd$，其中$d$是一个奇数，$k$是一个正整数。令$a$是一个小于$p$的正整数，则下列两项至少有一项成立
 > - $a^{2^kd}, a^{2^{k-1}d}, a^{2^{k-2}d},\cdots,a^d$中至少有一个与$-1$同余模$p$。
 > - $a^d \equiv 1 \pmod p$。
 
-被称之为米勒-拉宾素性检验的算法便基于此定理，[这里][mr]有一个此算法的实现，它的时间复杂度与费马素性检验相同，均为$\mathcal{O}(\log n)$。这个算法是目前应用最广泛的算法，这里还有一些关于这个算法的有趣结论。
+被称之为米勒-拉宾素性检验的算法便基于此定理的逆否命题，正如我们在费马素性检验中所做的那样，它看起来是这样的
+{% highlight python %}
+def miller_rabin(n, k):
+    # we always assume that n >= 2
+    if n <= 3:
+        return True
+    if n == 4:
+        return False
+
+    # find d s.t. n - 1 = d * 2^k
+    d = n - 1
+    while d % 2 == 0:
+        d //= 2
+    
+    a = random.randint(2, n - 2)
+    r = power(a, d, n)
+    if r == 1 or r == n - 1:
+        return True
+    
+    while d != n - 1:
+        r = (r * r) % n
+        d *= 2
+        if r == 1:
+            return False
+        if r == n - 1:
+            return True
+    
+    return False
+{% endhighlight %}
+[这里][mr]有一个完整的实现，其时间复杂度与费马素性检验相同，均为$\mathcal{O}(\log n)$。这个算法是目前应用最广泛的算法，这里还有一些关于这个算法的有趣结论。
 - 如果被测数小于$4759123141$，那么测试三个底数$2, 7$和$61$足矣。
 - 如果你每次都使用前$7$个素数进行测试，那么不大于$341550071728320$的数都会给出准确答案。
 - 如果选用$2,3,7,61$和$24251$作为底数，那么不大于$10^{16}$的数中仅有$46856248255981$无法给出准确答案。
