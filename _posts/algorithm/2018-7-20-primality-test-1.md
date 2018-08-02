@@ -50,13 +50,13 @@ def eratosthenes_sieve(n):
                 is_prime[i] = False
     return [p for p in range(2, n + 1) if is_prime[p] == True]
 {% endhighlight %}
-让我们来一起分析一下埃拉托斯特尼筛法的复杂度，可以观察到，对于每一个素数，内循环会执行$n/p$次，因而问题转变为了求解以下和式
+让我们来一起分析一下埃拉托斯特尼筛法的复杂度，可以观察到，对于每一个素数，内循环会执行$n/p$次，因而问题转变为了求解以下和式。
 
 $$
 n \sum_{\text{p is a prime}} \frac{1}{p}
 $$
 
-它看起来似乎和调和级数非常类似，让我们回想起调和级数的定义
+别忘了$p \ge n$，尽管我们没有将其写在和式之中，但你不应该忘了它。这个和式看起来似乎和调和级数非常类似，让我们回想起调和级数的定义
 
 $$
 1 + \frac{1}{2} + \frac{1}{3} + \cdots
@@ -77,23 +77,23 @@ $$
 似乎出现了我们想要的东西，尽管还有些差距，因为我们希望得到一个和式而不是连乘。幸运的是，我们有一种方法能将这个连乘变为和式---取对数，且有
 
 $$
-\ln(1 + x) = \sum_n \frac{(-1)^{n+1}}{n}x^n, \quad \forall x \in (-1, 1]
+\ln(1 + x) = \sum_k^{\infty} \frac{(-1)^{k+1}}{k}x^k, \quad \forall x \in (-1, 1]
 $$
 
 （自然对数的[麦克劳林级数（Maclaurin series）][ms]），则有
 
 $$
 \begin{align}
-\ln (\sum_n \frac{1}{n}) &= \ln (\prod_{\text{p is prime}} \frac{1}{1 - \frac{1}{p}}) \\
+\ln (\sum_{k=1}^n \frac{1}{k}) &= \ln (\prod_{\text{p is prime}} \frac{1}{1 - \frac{1}{p}}) \\
 &= - \sum_{\text{p is prime}} {\ln (1-\frac{1}{p})} \\
 &= \sum_{\text{p is prime}} \frac{1}{p} + \sum_{\text{p is prime}} \frac{1}{2p^2} + \sum_{\text{p is prime}} \frac{1}{3p^3} + \cdots \\
 \end{align}
 $$
 
-则有
+则有（略去高阶项）
 
 $$
-\ln (\sum_n \frac{1}{n}) \sim \sum_{\text{p is prime}} \frac{1}{p}
+\ln (\sum_{k=1}^n \frac{1}{k}) \sim \sum_{\text{p is prime}} \frac{1}{p}
 $$
 
 即
