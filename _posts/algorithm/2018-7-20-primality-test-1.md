@@ -153,7 +153,7 @@ $$a^k \equiv -1  \pmod p$$
 
 被称之为米勒-拉宾素性检验的算法便基于此定理的逆否命题，正如我们在费马素性检验中所做的那样，它看起来是这样的
 {% highlight python %}
-def miller_rabin(n, k):
+def miller_rabin(n):
     # we always assume that n >= 2
     if n <= 3:
         return True
