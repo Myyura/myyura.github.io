@@ -74,7 +74,13 @@ $$
 \prod_{\text{p is prime}} \sum_{k = 0}^{\infty} \frac{1}{p^k} = \prod_{\text{p is prime}} \frac{1}{1 - \frac{1}{p}}
 $$
 
-似乎出现了我们想要的东西，尽管还有些差距，因为我们希望得到一个和式而不是连乘。幸运的是，我们有一种方法能将这个连乘变为和式---取对数，则有（注意到最后一步我们使用了[对数分布][ld]的结论）
+似乎出现了我们想要的东西，尽管还有些差距，因为我们希望得到一个和式而不是连乘。幸运的是，我们有一种方法能将这个连乘变为和式---取对数，且有
+
+$$
+\ln(1 + x) = \sum_n \frac{(-1)^{n+1}}{n}x^n, \quad \forall x \in (-1, 1]
+$$
+
+（自然对数的[麦克劳林级数（Maclaurin series）][ms]），则有
 
 $$
 \begin{align}
@@ -194,10 +200,10 @@ def miller_rabin(n):
 
 [pe]: https://projecteuler.net/
 [ftoa]: https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic
-[ld]: https://en.wikipedia.org/wiki/Logarithmic_distribution
 [fermat]: https://en.wikipedia.org/wiki/Fermat%27s_little_theorem
 [esm]: https://github.com/Myyura/Exercises/blob/master/classic_problems/primality_test/eratosthenes_sieve.py
 [mr]: https://github.com/Myyura/Exercises/blob/master/classic_problems/primality_test/miller_rabin.py
 [ss]: https://en.wikipedia.org/wiki/Solovay%E2%80%93Strassen_primality_test
 [ssi]: https://github.com/Myyura/Exercises/blob/master/classic_problems/primality_test/solovay_strassen.py
 [matrix67]: http://www.matrix67.com/
+[ms]: https://en.wikipedia.org/wiki/Taylor_series
