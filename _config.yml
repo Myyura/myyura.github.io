@@ -30,7 +30,7 @@ categories_path: categories.html
 tags_path: tags.html
 
 #BASE_PATH:
-BASE_PATH: https://myyura.github.io
+BASE_PATH: https://myyura.github.io/
 
 #gitment
 gitment_owner: myyura 
