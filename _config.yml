@@ -32,8 +32,8 @@ tags_path: tags.html
 #BASE_PATH:
 BASE_PATH: https://myyura.github.io/
 
-#gitment
-gitment_owner: myyura 
-gitment_repo: myyura.github.io
-gitment_client_id: 16a06d873b585c32ddae
-gitment_client_secret: d71f669579791d1500ad8e1713e53ad10fa4149e
+#gitalk
+gitalk_owner: myyura 
+gitalk_repo: myyura.github.io
+gitalk_client_id: 16a06d873b585c32ddae
+gitalk_client_secret: d71f669579791d1500ad8e1713e53ad10fa4149e
