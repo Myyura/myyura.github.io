@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: false
-title: [胡言乱语]Fate/Stay Night - Heaven's Feel 剧场版・观后感
+title: 胡言乱语・Fate/Stay Night - Heaven's Feel 剧场版观后感
 category: animation
 tags: [fate]
 ---
