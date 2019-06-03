@@ -2,7 +2,7 @@
 layout: post
 mathjax: true
 title: 数四・AKS算法・预备知识・数学篇
-category: algorithm
+category: mathematics
 tags: [primality-test, number-theory, mathematics]
 ---
 
