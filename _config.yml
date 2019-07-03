@@ -12,7 +12,7 @@ defaults:
     scope:
       path: "" # empty string for all files
     values:
-      title: "雨は、いつか上がるのかな"
+      title: "永久花"
 
 description: Myyura
 # gavatar头像及Favicon
