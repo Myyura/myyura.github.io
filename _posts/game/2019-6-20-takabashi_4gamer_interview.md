@@ -3,8 +3,9 @@ layout: post
 mathjax: false
 title: 4Gamer.net・「原田が斬る」・高橋哲哉特别访谈
 category: game
-tags: [monolith, interview]
+tags: [monolith, interview, game]
 ---
+「原田が斬る」・高橋哲哉特别访谈
 
 ## ***前言***
 想来自己的日语水平不升反退，找个由头提升提升日语水平也好。目前算是完成了一个初版，尚有些未完成的部分遗留，待日后水平上升之后再补上吧。[这里][original_article]是原文。
