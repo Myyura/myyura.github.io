@@ -6,7 +6,7 @@ category: algorithm
 tags: [algorithm, primality-test, number-theory, mathematics]
 ---
 
-素性测试(Primality test)
+素性测试（Primality test）
 
 ## ***前言***
 这是一个一时兴起而造的轮子了，也是因为在刷[Project Euler][pe]发现了许许多多需要判断一个数是否为素数的问题，于是去学习了一下几个常用的素性测试的算法。

@@ -6,7 +6,7 @@ category: algorithm
 tags: [algorithm, primality-test, number-theory, mathematics]
 ---
 
-AKS算法(AKS algorithm)・预备知识・算法篇
+AKS算法（AKS algorithm）・预备知识・算法篇
 
 ## ***前言***
 尽管AKS算法本身并不算复杂，但要完全理解其背后的数学思想与时间复杂度的计算却并没有其看上去那么容易---坚实的数论基础是必不可少的。我对数论并不太熟悉，这一度让我思考着是否要放弃这个坑。不过，就此停下未免太过可惜。
