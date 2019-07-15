@@ -6,7 +6,7 @@ category: mathematics
 tags: [primality-test, number-theory, mathematics]
 ---
 
-AKS算法(AKS algorithm)・预备知识・数学篇
+AKS算法（AKS algorithm）・预备知识・数学篇
 
 ## ***前言***
 
