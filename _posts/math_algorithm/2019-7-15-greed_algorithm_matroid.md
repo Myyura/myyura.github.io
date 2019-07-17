@@ -196,8 +196,7 @@ $$
 
 $$
 \begin{align}
-w_4 &> 1 \\
-&= \frac{\lvert F_2  \setminus F_1 \rvert (1 + \epsilon)}{\lvert F_2  \setminus F_1 \rvert } - \frac{\lvert F_1  \setminus F_2 \rvert \epsilon}{\lvert F_1  \setminus F_2 \rvert } \\
+w_4 > 1 &= \frac{\lvert F_2  \setminus F_1 \rvert (1 + \epsilon)}{\lvert F_2  \setminus F_1 \rvert } - \frac{\lvert F_1  \setminus F_2 \rvert \epsilon}{\lvert F_1  \setminus F_2 \rvert } \\
 &= \lvert F_2  \setminus F_1 \rvert w_3 - \lvert F_1  \setminus F_2 \rvert w_2
 \end{align}
 $$
