@@ -23,7 +23,7 @@ Hassler Whitney于1935年首次提出了拟阵这个概念，源于其想要给�
 
 (2) 对于每个子集$F_1 \subseteq F_2 \subseteq E$，若有$F_2 \in \mathcal{F}$，则$F_1 \in \mathcal{F}$。（通常我们称之为遗传性（Hereditary））
 
-(3) 若有子集$F_1,F_2 \in \mathcal{F}, \lvert F_1 \rvert < \lvert F_2 \rvert$，则存在一个元素$a \in F_2 \setminus F_1$使得$F_1 \cup \{a\} \in \mathcal{F}$。（通常我们称之为交换性（Exchange Property））
+(3) 若有子集$F_1,F_2 \in \mathcal{F}, \lvert F_1 \rvert < \lvert F_2 \rvert$，则存在一个元素$a \in F_2 \setminus F_1$使得$F_1 \cup \\{a\\} \in \mathcal{F}$。（通常我们称之为交换性（Exchange Property））
 
 ------------
 
@@ -36,20 +36,20 @@ Hassler Whitney于1935年首次提出了拟阵这个概念，源于其想要给�
 假设我们有一个由$m$个$n$元向量$\vec{v}_1, \ldots, \vec{v}_m$构成的矩阵$A$（不妨假定$n < m$且$A$的秩为$n$），那么此时如果我们定义
 
 $$
-E \triangleq \{\vec{v}_1, \ldots, \vec{v}_m\}
+E \triangleq \\{\vec{v}_1, \ldots, \vec{v}_m\\}
 $$
 
 且有
 
 $$
-\mathcal{F} \triangleq \{F \subseteq E \mid F\text{是一组线性无关的向量}\}
+\mathcal{F} \triangleq \\{F \subseteq E \mid F\text{是一组线性无关的向量}\\}
 $$
 
 则此时元组$M = (E, \mathcal{F})$是一个拟阵（也被称为线性拟阵（Linear Matroid）。我们可以直接检验于1.1节中给出的三公理，来证明$M$是一个拟阵。
 
 **证明：** 由定义可直接得到空集$\phi \in \mathcal{F}$。而很显然线性无关的向量组的子集仍然是线性无关的，遗传性也自此得证。于是重点在于检验交换性。
 
-假定有子集$F_1, F_2 \in \mathcal{F}, \lvert F_1 \rvert < \lvert F_2 \rvert$，则由线性无关的定义可知，以$F_1$作为基（Base）的向量空间（Vector Space）$V_1$的维度为$\lvert F_1 \rvert$，而以$F_2$作为基的向量空间$V_2$的维度为$\lvert F_2 \rvert$。由于$\lvert F_2 \rvert > \lvert F_1 \rvert$，因而一定至少有一个$V_2$中的向量$\vec{v}$不存在与$V_1$中，即无法表示为$F_1$中向量的线性组合，因而$\{\vec{v}\} \cup F_1$也是一组线性无关的向量，交换性得证。
+假定有子集$F_1, F_2 \in \mathcal{F}, \lvert F_1 \rvert < \lvert F_2 \rvert$，则由线性无关的定义可知，以$F_1$作为基（Base）的向量空间（Vector Space）$V_1$的维度为$\lvert F_1 \rvert$，而以$F_2$作为基的向量空间$V_2$的维度为$\lvert F_2 \rvert$。由于$\lvert F_2 \rvert > \lvert F_1 \rvert$，因而一定至少有一个$V_2$中的向量$\vec{v}$不存在与$V_1$中，即无法表示为$F_1$中向量的线性组合，因而$\\{\vec{v}\\} \cup F_1$也是一组线性无关的向量，交换性得证。
 
 -----------
 
@@ -66,7 +66,7 @@ $$
 且有
 
 $$
-\mathcal{F} \triangleq \{F \subseteq E \mid G[F]\text{是一棵树}\}
+\mathcal{F} \triangleq \\{F \subseteq E \mid G[F]\text{是一棵树}\\}
 $$
 
 则此时元组$M = (E, \mathcal{F})$便是一个拟阵（通常被称为图拟阵（Graph Matroid））。考虑到遗传性的证明是非常自然的，这里我们主要来说明一下交换性的证明。
@@ -102,7 +102,7 @@ $$
 
 其中$e_i, i \in [1, \lvert E \rvert]$为$E$中的元素。
  
-(2) 集合$F$由空集$\phi$开始，依次向$F$中按照权重由小到大的顺序添加使得$F \cup \{e_i\} \in \mathcal{F}$的$e_i, i \in [1, \lvert E \rvert]$。
+(2) 集合$F$由空集$\phi$开始，依次向$F$中按照权重由小到大的顺序添加使得$F \cup \\{e_i\\} \in \mathcal{F}$的$e_i, i \in [1, \lvert E \rvert]$。
 
 ------------
 
@@ -125,20 +125,20 @@ $$
 
 热身完毕，于是让我们接上之前的话题。我们需要证明于带权拟阵上的贪心算法总能够得到最优解。
 
-**证明：** 那么假设$B = \{b_1, b_2, \ldots, b_r\}$为贪心算法输出的基，那么很显然有
+**证明：** 那么假设$B = \\{b_1, b_2, \ldots, b_r\\}$为贪心算法输出的基，那么很显然有
  
 $$
 w(b_1) \le w(b_2) \le \cdots \le w(b_r)
 $$
 
-我们使用反证法证明我们想要的结论，这里假设$B$不是权值最小的基，且令最优解（即权值最小的基）为$A = \{a_1, a_2, \ldots, a_r\}$。因而一定至少存在一个整数$k$使得$w(b_k) > w(a_k)$，我们这里不妨使用这些整数$k$中最小的那个。
-考虑集合$B' = \{b_1, b_2, \ldots, b_{k-1}\}$与$A' = \{a_1, a_2, \ldots, a_k\}$，由于$\lvert A' \rvert > \lvert B' \rvert$，则此时由交换性可知，存在一个元素$a \in A' \setminus B'$使得$B' \cup \{a\}$仍然是一个独立集合。
+我们使用反证法证明我们想要的结论，这里假设$B$不是权值最小的基，且令最优解（即权值最小的基）为$A = \\{a_1, a_2, \ldots, a_r\\}$。因而一定至少存在一个整数$k$使得$w(b_k) > w(a_k)$，我们这里不妨使用这些整数$k$中最小的那个。
+考虑集合$B' = \\{b_1, b_2, \ldots, b_{k-1}\\}$与$A' = \\{a_1, a_2, \ldots, a_k\\}$，由于$\lvert A' \rvert > \lvert B' \rvert$，则此时由交换性可知，存在一个元素$a \in A' \setminus B'$使得$B' \cup \\{a\\}$仍然是一个独立集合。
 
 注意到此时有$w(a) \le w(a_k) < w(b_k)$，则由贪心算法的流程可知在取元素$b_k$之前，会先取$a$，矛盾。
 
 ------------
 
-对于一个独立集合$F$来说，若定义$f(\lvert F \rvert)$为检验$F \cup \{e_i\}$是否为独立集的时间，那么贪心算法的时间复杂度便为$\mathcal{O}(\lvert E \rvertlog\lvert E \rvert + \lvert E \rvertf(\lvert E \rvert))$。
+对于一个独立集合$F$来说，若定义$f(\lvert F \rvert)$为检验$F \cup \\{e_i\\}$是否为独立集的时间，那么贪心算法的时间复杂度便为$\mathcal{O}(\lvert E \rvert \log \lvert E \rvert + \lvert E \rvert f(\lvert E \rvert))$。
 
 ### 2.3.更进一步
 在2.2的证明当中我们可以注意到，拟阵的交换性保证了贪心算法能够得到最优解。于是很自然的我们会想到，反过来又会是一番什么样的情况呢？即，能够适用贪心算法而得到最优解的问题，是否一定能够抽象成一种拟阵结构呢？
@@ -147,7 +147,7 @@ $$
 
 令$E$为一个有限集，$\mathcal{F}$为一个由$E$的子集构成的族，一个独立系统（Independence System）$S = (E, \mathcal{F})$是一个满足公理一与二的二元组。类似的，我们也能够定义一个加权独立系统$S_w = (S, w)$。
 
-实际上许多耳熟能详的组合优化问题可以使用加权独立系统来进行表达，例如最短路问题（Shortest Path），背包问题（Knapsack Problem）等。以背包为题为例，给定非负数$n, c_i, w_i (1 \le i \le n)$，和$W$，我们希望求得一个集合$\{1, \ldots, n\}$的子集$K$，其满足$\sum_{j \in K} w_j \le W$且使得$\sum_{j \in K} c_j$最大。于此，令$E = \{1, \ldots, n\}$，$\mathcal{F} = \{F \subseteq E \mid \sum_{j \in F} w_j \le W\}$。
+实际上许多耳熟能详的组合优化问题可以使用加权独立系统来进行表达，例如最短路问题（Shortest Path），背包问题（Knapsack Problem）等。以背包为题为例，给定非负数$n, c_i, w_i (1 \le i \le n)$，和$W$，我们希望求得一个集合$\\{1, \ldots, n\\}$的子集$K$，其满足$\sum_{j \in K} w_j \le W$且使得$\sum_{j \in K} c_j$最大。于此，令$E = \\{1, \ldots, n\\}$，$\mathcal{F} = \\{F \subseteq E \mid \sum_{j \in F} w_j \le W\\}$。
 
 这也从侧面说明了公理一二的普适性。此外，注意到2.2节的贪心算法是可以直接应用在这样的加权独立系统之上的。这也是我们接下来内容的关键点之一。
 
@@ -157,12 +157,12 @@ $$
 
 答案是肯定的，不然也就不会有这一节了不是？接下来便让我们试着证明一番。
 
-**证明：** 我们使用反证法来证明我们想要的结论。假设$S$中存在两个独立集合$F_1$与$F_2$使得$\lvert F_2 \rvert > \lvert F_1 \rvert$且不满足公理三，即对于每一个$a \in F_2 \setminus F_1$，$F_1 \cup \{a\}$都不是独立集。
+**证明：** 我们使用反证法来证明我们想要的结论。假设$S$中存在两个独立集合$F_1$与$F_2$使得$\lvert F_2 \rvert > \lvert F_1 \rvert$且不满足公理三，即对于每一个$a \in F_2 \setminus F_1$，$F_1 \cup \\{a\\}$都不是独立集。
  
 于是根据$F_1, F_2$，我们构建如下权值函数$w$：
 
 $$
-w(a)=\left\{
+w(a)=\left\\{
 \begin{array}{ll}
 w_1 = \epsilon / \lvert E \rvert & \text{if $a \in F_1 \cap F_2$} \\
 w_2 = \epsilon / \lvert F_1  \setminus F_2 \rvert  & \text{if $a \in F_1 \setminus F_2$}\\
@@ -208,7 +208,7 @@ $$
 
 于是，结合起我们在2.2节的证明，我们可以得到如下结论：
 
-> 给定一个独立系统$S$，以及一个任意的$S$上的非负权值函数$w$，贪心算法能够求得$S$上的一个权值最小（最大）基当且仅当$S$是一个拟阵。*
+> 给定一个独立系统$S$，以及一个任意的$S$上的非负权值函数$w$，贪心算法能够求得$S$上的一个权值最小（最大）基当且仅当$S$是一个拟阵。
 
 ## 3.后记
 我们仅仅揭开了拟阵的冰山一角，实际上这优美的结构具有相当多的美妙性质，进而被应用于许多领域---不过我希望暂且结束有关于拟阵的话题，毕竟留下的坑已经太多了。
