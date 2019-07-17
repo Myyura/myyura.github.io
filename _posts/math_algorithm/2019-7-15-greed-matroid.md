@@ -36,13 +36,13 @@ Hassler Whitney于1935年首次提出了拟阵这个概念，源于其想要给�
 假设我们有一个由$m$个$n$元向量$\vec{v}_1, \ldots, \vec{v}_m$构成的矩阵$A$（不妨假定$n < m$且$A$的秩为$n$），那么此时如果我们定义
 
 $$
-E \triangleq \\{\vec{v}_1, \ldots, \vec{v}_m\\}
+E \triangleq \{\vec{v}_1, \ldots, \vec{v}_m\}
 $$
 
 且有
 
 $$
-\mathcal{F} \triangleq \\{F \subseteq E \mid F\text{是一组线性无关的向量}\\}
+\mathcal{F} \triangleq \{F \subseteq E \mid F\text{是一组线性无关的向量}\}
 $$
 
 则此时元组$M = (E, \mathcal{F})$是一个拟阵（也被称为线性拟阵（Linear Matroid）。我们可以直接检验于1.1节中给出的三公理，来证明$M$是一个拟阵。
@@ -66,7 +66,7 @@ $$
 且有
 
 $$
-\mathcal{F} \triangleq \\{F \subseteq E \mid G[F]\text{是一棵树}\\}
+\mathcal{F} \triangleq \{F \subseteq E \mid G[F]\text{是一棵树}\}
 $$
 
 则此时元组$M = (E, \mathcal{F})$便是一个拟阵（通常被称为图拟阵（Graph Matroid））。考虑到遗传性的证明是非常自然的，这里我们主要来说明一下交换性的证明。
@@ -162,7 +162,7 @@ $$
 于是根据$F_1, F_2$，我们构建如下权值函数$w$：
 
 $$
-w(a)=\left\\{
+w(a)=\left\{
 \begin{array}{ll}
 w_1 = \epsilon / \lvert E \rvert & \text{if $a \in F_1 \cap F_2$} \\
 w_2 = \epsilon / \lvert F_1  \setminus F_2 \rvert  & \text{if $a \in F_1 \setminus F_2$}\\
