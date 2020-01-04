@@ -230,16 +230,3 @@ h2, h3, h4, h5, h6 {
     font-size: 17px;
     font-size: 2.4rem;
 }
-
-figure {
-    display: inline-block;
-    border: 1px dotted gray;
-    margin: 20px; /* adjust as needed */
-}
-figure img {
-    vertical-align: top;
-}
-figure figcaption {
-    border: 1px dotted blue;
-    text-align: center;
-}
