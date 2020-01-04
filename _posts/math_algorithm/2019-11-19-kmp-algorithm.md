@@ -24,7 +24,7 @@ KMP算法是一个字符串匹配算法（String Matching Algorithm），用以�
 而事实上，由于我们已经知道字符'h'与字符串$p$中的每一个字符都不相同，更加明智的做法是跳过'h'之前的字符，直接将字符串$p$右移7位，如图1中所作的那样。
 
 <figure>
-  <img src="../../_resources/_images/kmp1.png" alt="1"/>
+  <img src="https://github.com/Myyura/myyura.github.io/blob/master/_resources/_images/kmp1.png" alt="1"/>
   <figcaption>图1</figcaption>
 </figure>
 
@@ -32,14 +32,14 @@ KMP算法是一个字符串匹配算法（String Matching Algorithm），用以�
 顺着上面的思路，我们很容易能构造出如下（图2）情况，这里字符串$p = \text{abc1abc2}$，当字符'1'与字符'2'不匹配时，由于字符串$p$中存在着一些相同的片段（例中为'abc'），我们不能够像图1中那样简单粗暴的将字符串$p$右移7位，而是只能如图中所示一般右移4位，重新开始比较。
 
 <figure>
-  <img src="../../_resources/_images/kmp2.png" alt="2"/>
+  <img src="https://github.com/Myyura/myyura.github.io/blob/master/_resources/_images/kmp2.png" alt="2"/>
   <figcaption>图2</figcaption>
 </figure>
 
 那么更一般的情况是怎样的呢？考虑到我们总是需要从字符串$p$的第一个字符进行比较，这个相同的片段似乎总是需要出现在$p$的头部与尾部，从而使我们能够构建出如下（图3）的一般情况---当我们在红色处失配时，注意字符串$p$中由开始到红色处的这部分，倘若于这部分中，头尾有着相同的片段（即图中的天蓝色部分，由于其出现在头尾，我们姑且称其为前缀与后缀），则我们直接将字符串$p$的头部移动到后缀所在的地方，开始新的匹配。
 
 <figure>
-  <img src="../../_resources/_images/kmp3.png" alt="3"/>
+  <img src="https://github.com/Myyura/myyura.github.io/blob/master/_resources/_images/kmp3.png" alt="3"/>
   <figcaption>图3</figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ KMP算法是一个字符串匹配算法（String Matching Algorithm），用以�
 基于这个观察，极大的前后缀的或许是一个不错的选择。
 
 <figure>
-  <img src="../../_resources/_images/kmp4.png" alt="4"/>
+  <img src="https://github.com/Myyura/myyura.github.io/blob/master/_resources/_images/kmp4.png" alt="4"/>
   <figcaption>图4</figcaption>
 </figure>
 
@@ -96,7 +96,7 @@ $$
 事实上，由于边界中的前后缀是两个相同的子串，因此我们只需要检查$s_{b_{i-1}}$与$s_{i-1}$是否相同（如图5）。倘若相同，则$b_i = b_{i - 1} + 1$，这是我们希望看到的情况。
 
 <figure>
-  <img src="../../_resources/_images/kmp5.png" alt="5"/>
+  <img src="https://github.com/Myyura/myyura.github.io/blob/master/_resources/_images/kmp5.png" alt="5"/>
   <figcaption>图5</figcaption>
 </figure>
 
