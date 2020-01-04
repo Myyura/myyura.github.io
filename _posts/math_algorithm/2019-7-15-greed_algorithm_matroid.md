@@ -19,11 +19,11 @@ Hassler Whitney于1935年首次提出了拟阵这个概念，源于其想要给�
 ### 1.1.定义
 令$E$为一个有限集（Finite Set），$\mathcal{F}$为一个由$E$的子集构成的族（Family），一个有限的拟阵$M = (E, \mathcal{F})$是一个满足以下条件的二元组（也被称为拟阵三公理）：
 
-(1) 空集$\phi \in \mathcal{F}$。
+&nbsp;&nbsp;(1) 空集$\phi \in \mathcal{F}$。
 
-(2) 对于每个子集$F_1 \subseteq F_2 \subseteq E$，若有$F_2 \in \mathcal{F}$，则$F_1 \in \mathcal{F}$。（通常我们称之为遗传性（Hereditary））
+&nbsp;&nbsp;(2) 对于每个子集$F_1 \subseteq F_2 \subseteq E$，若有$F_2 \in \mathcal{F}$，则$F_1 \in \mathcal{F}$。（通常我们称之为遗传性（Hereditary））
 
-(3) 若有子集$F_1,F_2 \in \mathcal{F}, \lvert F_1 \rvert < \lvert F_2 \rvert$，则存在一个元素$a \in F_2 \setminus F_1$使得$F_1 \cup \\{a\\} \in \mathcal{F}$。（通常我们称之为交换性（Exchange Property））
+&nbsp;&nbsp;(3) 若有子集$F_1,F_2 \in \mathcal{F}, \lvert F_1 \rvert < \lvert F_2 \rvert$，则存在一个元素$a \in F_2 \setminus F_1$使得$F_1 \cup \\{a\\} \in \mathcal{F}$。（通常我们称之为交换性（Exchange Property））
 
 ------------
 
