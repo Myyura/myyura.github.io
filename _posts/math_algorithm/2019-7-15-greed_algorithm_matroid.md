@@ -151,7 +151,7 @@ $$
 以背包问题为例，给定非负数$n, c_i, w_i (1 \le i \le n)$，和$W$，我们希望求得一个集合$\\{1, \ldots, n\\}$的子集$K$，其满足$\sum_{j \in K} w_j \le W$且使得$\sum_{j \in K} c_j$最大。于此，我们可令
 
 $$
-E = \\{1, \ldots, n\\}, \mathcal{F} = \\{F \subseteq E \mid \sum_{j \in F} w_j \le W\\}
+E = \{1, \ldots, n\}, \mathcal{F} = \{F \subseteq E \mid \sum_{j \in F} w_j \le W\}
 $$
 
 这也从侧面说明了公理一二的普适性。此外，注意到2.2节的贪心算法是可以直接应用在这样的加权独立系统之上的。这也是我们接下来内容的关键点之一。
