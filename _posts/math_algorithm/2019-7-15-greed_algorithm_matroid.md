@@ -178,7 +178,7 @@ w_4 = 2 & \text{otherwise}
 $$
 
 其中$0 < \epsilon < 1$。
-很自然的我们有$w_1 < w_2$且$w_3 < w_4$。而由$\lvert F_2 \rvert > \lvert F_1 \rvert$可知$w_3 w_2$。即有$w_1 < w_2 < w_3 < w_4$。
+很自然的我们有$w_1 < w_2$且$w_3 < w_4$。而由$\lvert F_2 \rvert > \lvert F_1 \rvert$可知$w_3 > w_2$。即有$w_1 < w_2 < w_3 < w_4$。
 
 这意味着贪心算法会总是先取$F_1 \cap F_2$中的元素，然后是$F_1 \setminus F_2$。而由假设其并不会选取$F_2 \setminus F_1$中的元素，因为他们没法与原有的集合构成新的独立集了。
 
