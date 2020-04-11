@@ -17,7 +17,7 @@ tags: [mathematics, graph-drawing, integer-programming]
 那么对于一个给定的图，例如我们假设$V = \{v_1, v_2, v_3, v_4\}$，$E = \{v_1v_2, v_1v_3, v_2v_3, v_1v_4, v_2v_3, v_3v_4\}$，也即四个点的完全图$K_4$，我们可以很自然的将其画在平面上（如下图），就像我们平时讨论图论问题的时候一样。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_1.png" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_1.png" width="200" height="200" alt="1"/>
 </figure>
 
 通俗的说，所谓的图描画，便是指上图中我们所做的那样，将一张图绘制在平面上的一种方式---我们将点绘制为圆，将边绘制为弧线，以连接两个不同的点。
@@ -27,7 +27,7 @@ tags: [mathematics, graph-drawing, integer-programming]
 而我们想要解决的问题也正与描画中的不同弧线之间的交叉点的个数有关---给定一张图，我们希望知道其绘制在平面上时，至少会有多少个交叉点，并且更进一步，我们希望能够得到这种使得交叉点最小的绘制方法。举例来说，四个点的完全图$K_4$可以绘制为如下形式，使得其不存在交叉点，而五个点的完全图$K_5$则不行。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_2.png" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_2.png" width="200" height="200" alt="1"/>
 </figure>
 
 对于图$G$来说，我们将$G$绘制在平面上时所能达到的最小交叉的数量记做$\text{cr}(G)$，称作图$G$的交叉数（Crossing Number）。对于任意给定的图$G$，计算其交叉数是一个NP困难问题，这意味着我们无法快速高效的去求得它，那么想要更进一步得到绘制方法，更是难上加难了。
@@ -73,19 +73,19 @@ $$
 令$G = (V, E)$为我们待描画的图，其中$V = \{v_1, v_2, v_3, v_4, v_5\}$，$E = \{v_1v_2, v_1v_3, v_1v_4, v_2v_4, v_2v_5, v_3v_4, v_4v_5\}$。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_3.png" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_3.png" width="300" height="200" alt="1"/>
 </figure>
 
 首先，对于每一条边$e = v_i v_j \in E$，我们为其构造两个端点$v^e_{i}$与$v^e_{j}$，并将其分别连接在点$v_{i}$与$v_j$之上，如下图中所示（其中虚线表示$E$中的边），例如对于边$v_1 v_3$来说，我们为其构造了两个端点$v^{13}_{1}$与$v^{13}_3$并分别与$v_1$与$v_3$相连接。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_4.png" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_4.png" width="300" height="200" alt="1"/>
 </figure>
 
 但仅仅是如此是不够的，我们必须要能实质性的去限制，这里我们首先构建一棵连接$G$中所有点的树$T_{V}$。下图给出了一个$T_{V}$的例子，这里我们将上面所构建的与边相关联的顶点也画上去了。注意到尽管我选择的$T_{V}$是图$G$的一棵生成树，但$T_{V}$中边并非一定要出现在$G$中，我们仅仅是希望有一棵连接$G$中所有点的树罢了，其更像是完全图$K_{|V|}$的一棵生成树。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_5.png" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_5.png" width="300" height="200" alt="1"/>
 </figure>
 
 一旦树$T_{V}$被决定之后，我们首先将这棵树绘制在平面上---我们对于绘制这棵树并没有多大的限制，满足我们在第一节中提到的三点即可。而后，我们逐一将$G$的边进行绘制---此时便有一个限制了，我们不允许一条边$e \in E$在被绘制之时，与任意一条已经绘制的，$T_{V}$中的边发生交叉。
@@ -97,7 +97,7 @@ $$
 当然，很自然的，我们要求任意的边在进行绘制的时候，总是从我们为其构造的某个端点出发，一笔绘制到另一个为其构造的端点。此时有趣的事情就来了，如下图所示，端点的相对位置会直接决定两条边是否存在交叉。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_6.png" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_6.png" width="300" height="200" alt="1"/>
 </figure>
 
 倘若我们以$T_{V}$中，到达$v_3$的边$v_1v_3$作为基准点，以逆时针方向来看，上左图中$v^{34}_3$在$v^{13}_3$之后，而上右图中在之前，其他点的相对位置不变的情况下，后者会导致交叉。这个观察告诉我们，两条边是否在绘制之后存在交叉，与我们所构建端点的相对位置息息相关。
@@ -108,7 +108,7 @@ $$
 于是紧接着，我们构建上图的，从点$v_1$出发的一个DFS序，也即于某次深度优先搜索之时被访问的顺序，如下图所示，对于任意一点$v$，我们以$DFS(v)$表示其被访问的次序，且对于附着在某点上所构建的端点$u$与$v$，倘若$DFS(u) < DFS(v)$，则我们认为在绘制之时，点$u$应在点$v$之前。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_7.png" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/gd_1_7.png" width="300" height="200" alt="1"/>
 </figure>
 
 那么什么时候点$u, v$所关联的边与点$p, q$所关联的边会发生交叉呢？答案也很简单，从图中实际上也能很快的得到结论，假定$DFS(u) < DFS(v)$且$DFS(p) < DFS(p)$，此时交叉的充要条件即为
@@ -154,7 +154,7 @@ $$
 接着便是建模所面临的的最核心的问题---DFS序该如何使用整数规划去决定。这里我们使用变量
 
 $$
-z_{uv} \in \{0, 1},   \forall u, v \in V'
+z_{uv} \in \{0, 1\}, \forall u, v \in V'
 $$
 
 来表示每一对点$u, v$之间DFS序的大小关系，即$z_{uv} = 1$当且仅当$DFS(u) < DFS(v)$。
@@ -201,7 +201,7 @@ $$
 \text{Minimize: } \sum_{u, v, p, q \in V'} x_{uv, pq}
 $$
 
-便大功告成了。最终这个整数规划含有$\mathcal{O}(|V|^4)$个变量以及$\mathcal{O}(|V|^4)$条制约。
+便大功告成了。最终这个整数规划含有$\mathcal{O}(\lvert V \rvert^4)$个变量以及$\mathcal{O}(\lvert V\rvert^4)$条制约。
 
 ## 5.结语
 尽管我们略过了证明而只讲述了基本想法，但实际上证明也并不复杂---但需要一些描画基础，枯燥乏味，因此也就没有必要执着于去书写严密的证明了。
