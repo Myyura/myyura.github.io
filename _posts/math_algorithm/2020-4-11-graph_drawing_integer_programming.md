@@ -1,12 +1,12 @@
 ---
 layout: post
 mathjax: true
-title: 数五・图描画与整数规划・其一・计算交叉数
+title: 数五・图描画与整数规划・交叉数
 category: mathematics
 tags: [mathematics, graph-drawing, integer-programming]
 ---
 
-图描画（Graph Drawing）与整数规划（Integer Programming）・其一
+图描画（Graph Drawing）与整数规划（Integer Programming）・交叉数（Crossing Number）
 
 ## ***前言***
 找份活干比想象中要难得多，因此这也算是苦中作乐罢，来讲一个曾经研究过的内容---并非什么非常好的回忆，只记得当时想出来的方案实验结果太差而因此小小的更换了课题。大约是两年前时候，我进行了一段时间的使用整数规划对图描画中的一些问题进行建模的研究，目的是为了借由CPLEX等高速的整数规划求解器来效率的解决一些图描画中的NP困难问题。图描画问题从数学的角度来说是相当困难的一类问题，但从视觉来说，却是很容易想象与理解的，于是本文不会有什么严密的数学内容---苦中作乐，数学太多，可就乐不起来了。
