@@ -105,7 +105,10 @@ $$
 此时约束条件为
 
 $$
-\vec{w} \vec{x}_i - b \ge -\xi_i, \xi_i \ge 0 \forall i \in [1, n]
+\begin{align}
+\vec{w} \vec{x}_i - b \ge -\xi_i, \forall i \in [1, n] \\
+\xi_i \ge 0, \forall i \in [1, n]
+\end{align}
 $$
 
 这便是一类支持向量机的基本想法，于特征空间中寻找一个能够将数据样本与原点用最大间隔分开的超平面，外加一点点容忍值。
@@ -118,8 +121,10 @@ $$
 使得
 
 $$
-0 \le \alpha_i \le \frac{1}{\nu n} \forall i in [1, n] \\
+\begin{align}
+0 \le \alpha_i \le \frac{1}{\nu n}, \forall i \in [1, n] \\
 \sum_{i=1}^n \alpha_i = 1
+\end{align}
 $$
 
 再说下去就都是些无聊的，我还没来得及学习的内容了，因此目前姑且先采取如下策略吧
@@ -146,7 +151,7 @@ from sklearn.svm import OneClassSVM
 这个分割过程可以用一棵二叉树$T$来进行描述，二叉树$T$的叶子节点为某个数据样本，而根节点到该叶子节点的路径长度，便是分割次数。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/isolation_forest_1.png" width="800" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/isolation_forest_1.png" width="850" height="300" alt="1"/>
 </figure>
 
 对于异常数据而言（图右），由于其偏离大部队，通过较少次数的分割，我们通常就能够找到它。
