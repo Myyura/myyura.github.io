@@ -42,7 +42,7 @@ $$
 于是一个叫做Schölkopf的人提出，我们可以试着先寻找一个平面，使得所有的样本都在其一侧，且距离远点最远，如下图所示。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/one_class_svm_1.png" width="350" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/one_class_svm_1.png" width="360" height="270" alt="1"/>
 </figure>
 
 考虑二维空间的话，我们的目标便是寻找这条橙色的分界线，且使得原点到其的距离（黑色虚线）最小。
@@ -88,7 +88,7 @@ $$
 如果数据中存在一些如下所示的异常值
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/one_class_svm_2.png" width="350" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/one_class_svm_2.png" width="360" height="270" alt="1"/>
 </figure>
 
 很显然我们希望得到图中虚线所示的平面，但受到异常值的影响，我们实际上会获得实线所示的平面。
