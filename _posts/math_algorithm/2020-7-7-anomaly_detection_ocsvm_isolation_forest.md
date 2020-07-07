@@ -42,7 +42,7 @@ $$
 于是一个叫做Schölkopf的人提出，我们可以试着先寻找一个平面，使得所有的样本都在其一侧，且距离远点最远，如下图所示。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/one_class_svm_1.png" width="310" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/one_class_svm_1.png" width="310" height="300" alt="1"/>
 </figure>
 
 考虑二维空间的话，我们的目标便是寻找这条橙色的分界线，且使得原点到其的距离（黑色虚线）最小。
@@ -88,7 +88,7 @@ $$
 如果数据中存在一些如下所示的异常值
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/one_class_svm_2.png" width="310" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/one_class_svm_2.png" width="310" height="300" alt="1"/>
 </figure>
 
 很显然我们希望得到图中虚线所示的平面，但受到异常值的影响，我们实际上会获得实线所示的平面。
@@ -105,7 +105,7 @@ $$
 此时约束条件为
 
 $$
-\vec{w}\vec{x}_i - b &\ge -\xi_i, \xi_i &\ge 0 \forall i \in [1, n]
+\vec{w} \vec{x}_i - b \ge -\xi_i, \xi_i &\ge 0 \forall i \in [1, n]
 $$
 
 这便是一类支持向量机的基本想法，于特征空间中寻找一个能够将数据样本与原点用最大间隔分开的超平面，外加一点点容忍值。
@@ -146,7 +146,7 @@ from sklearn.svm import OneClassSVM
 这个分割过程可以用一棵二叉树$T$来进行描述，二叉树$T$的叶子节点为某个数据样本，而根节点到该叶子节点的路径长度，便是分割次数。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/isolation_forest_1.png" width="600" height="210" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/isolation_forest_1.png" width="800" height="270" alt="1"/>
 </figure>
 
 对于异常数据而言（图右），由于其偏离大部队，通过较少次数的分割，我们通常就能够找到它。
@@ -170,13 +170,13 @@ $$
 接着，令$I(n)$表示由根节点出发到所有点的路径长度总和，因此$I(n) + n$便是这些路径上点的数量的总和，则有
 
 $$
-S(n) &= (I(n) + n) / n
+S(n) = (I(n) + n) / n
 $$
 
 同样的，令$E(n)$表示由根节点出发到所有“空点”（即叶节点的左右孩子）的路径长度的总和，考虑到$n$个节点的树将有$n+1$个“空节点”，因此有
 
 $$
-U(n) &= E(n) / (n + 1)
+U(n) = E(n) / (n + 1)
 $$
 
 且通过数学归纳法不难证明
