@@ -15,6 +15,7 @@ tags: [mathematics, graph-theory]
 当然，说是学习笔记，我想最后应该会变成自选主题的，满是自娱自乐的杂谈。
 
 ## 1.基本定义
+第一部分我们会介绍一些有关于图论中的基本定义。
 图的定义是一个很奇怪的东西，十本书中可能会看到九种不同的写法。
 考虑到以后的内容应该会主要集中在简单图，因此我们用一种相当简略的定义---我们认为图$G$即为一个有序的二元组$(V, E)$，
 其中$V$是一个非空有限集，也称之为点集（Vertex Set），而$E$则为点集中的元素的二元组的多重集合（Multi-Set），通常称之为边集（Edge Set）。
@@ -23,15 +24,15 @@ tags: [mathematics, graph-theory]
 
 $$
 \begin{align}
-V = \{v_1, v_2, v_3, v_4, v_5\}\\
-E = \{v_1v_2, v_2v_3, v_3v_3, v_3v_4,v_2v_4, v_4v_5, v_2v_5, v_2v_5\}
+V &= \{v_1, v_2, v_3, v_4, v_5\}\\
+E &= \{v_1v_2, v_2v_3, v_3v_3, v_3v_4,v_2v_4, v_4v_5, v_2v_5, v_2v_5\}
 \end{align}
 $$
 
 这个例子实际上是我从Graph Theory with Applications - J.A.Bondy & U.S.R.Murty中抄过来的---以我们定义的形式。我们可以通过如下形式将这张图画在平面上，并给边安排上一些名字---相信绝大多数人最初是以这种方式认识到图的
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_1.pdf" width="360" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_1.png" width="360" height="270" alt="1"/>
 </figure>
 
 可以看到，图中有一些看起来相对特殊的情况。
@@ -39,6 +40,108 @@ $$
 此外，边$e_7$与$e_8$实际上是两条相同的边，我们把这种情况称为多重边（Multi-Edge）。
 
 而我们主要想要关注的，实际上是不包含自圈与多重边的图，我们通常称这样的图为简单图（Simple Graph）。
+
+回忆一下我们对于边集的定义，其为一个一个二元组的多重集，而二元组实际上是可以有序的（Ordered）。
+倘若我们认为边集中的二元组有序，即认为$v_1v_2$与$v_2v_1$不再是同一条边，则我们称其为有向图（Digraph），与其相对应的则称之为无向图（Undigraph）。
+为了区分二元组是否有序，通常以$(v_1, v_2)$的形式表示有序元组，区别于$v_1v_2$。
+在绘制时，边$(v_1, v_2)$会被绘制为一条由点$v_1$指向$v_2$的边。
+
+<figure style="text-align:center;">
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_2.png" width="360" height="270" alt="1"/>
+</figure>
+
+对于一点$u \in V$，与其邻接的边的数量被称为点$u$的度（Degree），记做$d(u)$，例如上述无向图中点$v_2$，其度为$5$。
+在有向图中，考虑到边有了方向，我们将其分别讨论---由$u$指向其他的点的边的数量，称为出度（Outdegree），反之称为入度（Indegree），分别记做$d^+(u)$与$d^-(u)$，例如上述有向图中的点$v_2$，其出度与入度分别为$2$与$3$。
+
+而与一点$u \in V$相邻接的点的集合被称为$u$的邻居（Neighbor），记做$N(u)$。对应的，在有向图中，我们以$N^-(u)$与$N^+(u)$分别表示以指向$u$的边邻接的点的集合与由$u$指向的边邻接的点的集合。
+不难看出，简单无向图的情况下，有$d(u) = \lvert N(u) \rvert$。
+
+不特殊提及的话，我们总是讨论简单无向图。
+
+在简单图中，我们也会关注几种相对特殊的情况---例如任意两点之间均有边的情况，我们把这样的图称为完全图（Complete Graph）。
+很显然对于$n$个点的完全图，其将会有$n(n-1) / 2$条边，这也是$n$点的简单图所能具有的最大边数。
+
+再比如，倘若点集$V$可以被分割为两部分$X, Y \subset V$且有$X \cup Y = V, X \cap Y = \emptyset$，使得对于任意一条边$e = uv \in E$，要么$u \in X, v \in Y$，要么$u \in Y, v \in X$。
+就像下面这样，
+
+<figure style="text-align:center;">
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_2.png" width="360" height="270" alt="1"/>
+</figure>
+
+则我们把这样的图称为二分图（Bipartite Graph），通常也会记做$G = ((X, Y), E)$。
+同样的，若对于任意两点$u \in X, v \in Y$，均有$uv \in e$，则我们称这样的二分图为完全二分图，而完全二分图拥有$\lvert X \rvert \lvert Y \rvert$条边。
+
+学会计算/估计一张图所具有的边数，对于我们之后进行图算法的算法分析是很有帮助的，因此顺着上面二分图的定义，让我们来看一个稍微复杂一点的。
+
+很容易的能够将二分图的定义拓展到$k$分图（k-partite Graph）。
+于是我们来思考一种非常特殊的完全$k$分图，在其中$n$个点被非常均匀的分成了$k$部分---每一部分要么具有$\lfloor \frac{n}{k} \rfloor$个点，要么具有$\lceil \frac{n}{k} \rceil$个点。
+
+考虑到只有不同分割中的点之间能够存在边，倘若知道每个分割的点的数量，简单的乘法即可完事。
+因而问题的关键在于每个分割究竟有多少点，换句话说，具有$\lfloor \frac{n}{k} \rfloor$个点的分割与具有$\lceil \frac{n}{k} \rceil$个点的分割分别有多少。
+
+这是一个简单的问题，我们有$n - \lfloor \frac{n}{k} \rfloor k$个具有$\lfloor \frac{n}{k} \rfloor$个点的分割，因而有$k - n + \lfloor \frac{n}{k} \rfloor k$个具有$\lceil \frac{n}{k} \rceil$个点的分割。
+
+令$m = \lfloor \frac{n}{k} \rfloor$，那么对于$m$个点的分割来说，其中每个点会与分割外的$n-m$个点相连，因此有$m(n - m)(k - n + mk)$条边。
+同理对于$m+1$个点的分割来说，一共有$(m+1)(n - m - 1)(n-mk)$条边。
+
+每条边会被重复计算一次，因此答案为
+
+$$
+\begin{align}
+&(m(n - m)(k - n + mk) + (m+1)(n - m - 1)(n-mk)) / 2 \\
+&=\binom{n - m}{2} + (k-1)\binom{m + 1}{2}
+\end{align}
+$$
+
+------------------------------------------------------
+
+集合有子集，图同样有着子图（Subgraph）的概念。
+令图$G' = (V', E')$，其中$V' \subseteq V$，$E' \subseteq E$，则此时我们称$G'$为$G$的子图。
+形象的说，像是从图$G$中取出来的一部分。
+
+如现实中的地图一样，我们也可以定义路径（Path），来描述两点（地）之间的可达性。
+
+图$G = (V, E)$中一条点$u$到点$v$的路径$P_{u,v}$指的是一组点的序列$(u=w_0, w_1, w_2, \ldots, v=w_k)$，其中序列的首尾分别为$u$与$v$，且对于相邻的两点$w_i, w_{i+1}$，有$w_iw_{i+1} \in E$。
+倘若$u = v$，即一条自己到自己的路径，则我们称该路径为圈（Cycle）。
+当然，如图上一节中我们主要考虑简单图，我们同样也只考虑简单路径---即路径中除了第一个点与最后一个点可以相同之外，不应存在其他的相同的两点。
+
+有向图中也一样，不过是将$w_iw_{i+1} \in E$对应的修改为$(w_i, w_{i+1}) \in E$，而此时我们也会称路径为有向路径，如同单行道一般。
+
+------------------------------------------------------
+
+倘若图中任意两点间均存在一条路径，则我们称图为连通的（Connected），反之则为不连通的（Unconnected）。
+上面例子中所提到的$G$很显然是连通图，倘若我们从中去掉边$e_2, e_5$与$e_6$，如下图所示，则为不连通图。
+
+<figure style="text-align:center;">
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_3.png" width="360" height="270" alt="1"/>
+</figure>
+
+对于一个不连通图$G$来说，其中一定存在若干连通部分（如上图中的左上右下），每个部分为该不连通图的子图，且该部分无法通过加入一条图$G$中的边使其成为一个更大的$G$的连通子图。
+我们把这样的“极大的连通子图”成为图$G$中的连通分量（Connected Component）。
+
+以后我们会有许许多多的问题是与路径有关的，在这里我们先仅仅作为一个概念将其记住。
+
+------------------------------------------------------
+
+接下来我们介绍图同构（Graph isomorphism），观察下面这张图，我们将其记做$H = (V_H, E_H)$,
+
+<figure style="text-align:center;">
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_4.png" width="360" height="270" alt="1"/>
+</figure>
+
+他与我们最开始介绍的图例$G = (V, E)$一样，拥有$5$个点，$8$条边。
+且倘若你细心的话，你会发现尽管两张图看起来天差地别，但其实具有相同的结构---我们可以找到一个映射$\phi: V \rightarrow V_H$，使得对于任意一条边$uv \in E$，我们都有$\phi(u)\phi(v) \in E_H$，即
+
+$$
+\begin{align}
+\phi(v_1) = y, \quad \phi(v_2) = x, \quad \phi(v_3) = u, \quad \phi(v_4) = v, \quad \phi(v_5) = w
+\end{align}
+$$
+
+此时我们说图$G$与图$H$是同构的（Isomorphic），记做$G \simeq H$---换言之，真正差异之处只有点与边的名字。
+若有$G = H$，即图到其自身的同构，我们称之为图的自同构（Automorphism）。
+
+## 2.图的表示
 
 > Theorem.令$G$是一个拥有$n$个点的简单图，矩阵$A$为$G$的邻接矩阵。若$A$的特征值（于复数域上）互不相同，则$G$的自同构群是阿贝尔群（即可交换的）。
 
@@ -53,7 +156,7 @@ $$
 $$
 \begin{align}
 P(S^{-1}DS) &= (S^{-1}DS)P \\
-(SPS^{-1})D = D(SPS^{-1})
+(SPS^{-1})D &= D(SPS^{-1})
 \end{align}
 $$
 
@@ -61,10 +164,12 @@ $$
 
 $$
 \begin{align}
-(X_P D)_{ij} = (X_P)_{ij} \times d_{ii} \\
-(D X_P)_{ij} = (X_P)_{ij} \times d_{jj}
+(X_P D)_{ij} &= (X_P)_{ij} \times d_{ii} \\
+(D X_P)_{ij} &= (X_P)_{ij} \times d_{jj}
 \end{align}
 $$
 
 考虑到当$i \neq j$时，$d_{ii} \neq d_{jj}$，因而此时有$(X_P)_{ij} = 0$，即$X_P$是一个对角矩阵。
 同理，$X_Q$也是一个对角矩阵，因此有$X_P X_Q = X_Q X_P$，也就有$PQ = QP$，命题得证。 
+
+## 3.后记
