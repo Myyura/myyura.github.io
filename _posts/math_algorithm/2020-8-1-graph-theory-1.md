@@ -32,7 +32,7 @@ $$
 这个例子实际上是我从Graph Theory with Applications - J.A.Bondy & U.S.R.Murty中抄过来的---以我们定义的形式。我们可以通过如下形式将这张图画在平面上，并给边安排上一些名字---相信绝大多数人最初是以这种方式认识到图的
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_1.png" width="360" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_1.png" width="360" height="270" alt="1"/>
 </figure>
 
 可以看到，图中有一些看起来相对特殊的情况。
@@ -47,7 +47,7 @@ $$
 在绘制时，边$(v_1, v_2)$会被绘制为一条由点$v_1$指向$v_2$的边。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_2.png" width="360" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_2.png" width="360" height="270" alt="1"/>
 </figure>
 
 对于一点$u \in V$，与其邻接的边的数量被称为点$u$的度（Degree），记做$d(u)$，例如上述无向图中点$v_2$，其度为$5$。
@@ -65,7 +65,7 @@ $$
 就像下面这样，
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_3.png" width="360" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_3.png" width="360" height="270" alt="1"/>
 </figure>
 
 则我们把这样的图称为二分图（Bipartite Graph），通常也会记做$G = ((X, Y), E)$。
@@ -113,7 +113,7 @@ $$
 上面例子中所提到的$G$很显然是连通图，倘若我们从中去掉边$e_2, e_5$与$e_6$，如下图所示，则为不连通图。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_4.png" width="360" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_4.png" width="360" height="270" alt="1"/>
 </figure>
 
 对于一个不连通图$G$来说，其中一定存在若干连通部分（如上图中的左上右下），每个部分为该不连通图的子图，且该部分无法通过加入一条图$G$中的边使其成为一个更大的$G$的连通子图。
@@ -125,7 +125,7 @@ $$
 接下来我们介绍图同构（Graph isomorphism），观察下面这张图，我们将其记做$H = (V_H, E_H)$,
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/graph_theroy_1_5.png" width="360" height="270" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_5.png" width="360" height="270" alt="1"/>
 </figure>
 
 他与我们最开始介绍的图例$G = (V, E)$一样，拥有$5$个点，$8$条边。
