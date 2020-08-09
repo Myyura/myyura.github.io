@@ -65,7 +65,7 @@ $$
 就像下面这样，
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_3.png" width="150" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_3.png" width="400" alt="1"/>
 </figure>
 
 则我们把这样的图称为二分图（Bipartite Graph），通常也会记做$G = ((X, Y), E)$。
