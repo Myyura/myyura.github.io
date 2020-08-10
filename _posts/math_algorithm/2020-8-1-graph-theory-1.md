@@ -113,7 +113,7 @@ $$
 上面例子中所提到的$G$很显然是连通图，倘若我们从中去掉边$e_2, e_5$与$e_6$，如下图所示，则为不连通图。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_4.png" width="500" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_4.png" width="450" alt="1"/>
 </figure>
 
 对于一个不连通图$G$来说，其中一定存在若干连通部分（如上图中的左上右下），每个部分为该不连通图的子图，且该部分无法通过加入一条图$G$中的边使其成为一个更大的$G$的连通子图。
@@ -125,7 +125,7 @@ $$
 接下来我们介绍图同构（Graph isomorphism），观察下面这张图，我们将其记做$H = (V_H, E_H)$,
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_5.png" width="500" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/graph_theory_1_5.png" width="450" alt="1"/>
 </figure>
 
 他与我们最开始介绍的图例$G = (V, E)$一样，拥有$5$个点，$8$条边。
@@ -142,8 +142,17 @@ $$
 
 ## 2.图的表示
 
-对于任意的图$G = (V, E)$---这里我们就姑且只考虑简单图了---假定其点集$V = \{v_1, v_2, \ldots, v_n\}$，我们可以用一个矩阵$A$来表示它，其中$A_{ij} = 1$当且仅当$v_iv_j \in E$。
-假定点集和边集分别为$V = \{v_1, v_2, v_3, v_4\}$和$E = \{v_1v_2, v_2v_3, v_3v_4, v_4v_1, v_1v_3\}$，其对应的矩阵则为
+对于任意的图$G = (V, E)$---这里我们就姑且只考虑简单图了---假定其点集$V = \{ v_1, v_2, \ldots, v_n \}$，我们可以用一个矩阵$A$来表示它，其中$A_{ij} = 1$当且仅当$v_iv_j \in E$。
+假定点集和边集分别为
+
+$$
+\begin{algin}
+V &= \{v_1, v_2, v_3, v_4\} \\
+E &= \{v_1v_2, v_2v_3, v_3v_4, v_4v_1, v_1v_3\}
+\begin{align}
+$$
+
+其对应的矩阵则为
 
 $$
 \begin{pmatrix}
