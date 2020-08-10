@@ -149,7 +149,7 @@ $$
 \begin{align}
 V &= \{v_1, v_2, v_3, v_4\} \\
 E &= \{v_1v_2, v_2v_3, v_3v_4, v_4v_1, v_1v_3\}
-\begin{align}
+\end{align}
 $$
 
 其对应的矩阵则为
