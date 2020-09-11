@@ -2,7 +2,7 @@
 layout: post
 mathjax: true
 title: 数六・图论其一・基本定义及其表示
-category: AI
+category: mathematics
 tags: [mathematics, graph-theory]
 ---
 
