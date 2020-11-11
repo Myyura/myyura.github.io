@@ -87,7 +87,7 @@ $$
 因而有$A^\star y \le b^\star$，$A^\star z \le b^\star$，进而
 
 $$
-A^\star \bar{x} = b^\star = \alpha A^\star y + (1-\alpha) a^\star Z
+A^\star \bar{x} = b^\star = \alpha A^\star y + (1-\alpha) A^\star z
 $$
 
 很显然$\alpha \in (0, 1)$，否则$\bar{x}$要么为$y$要么为$z$。
@@ -250,7 +250,7 @@ $$
 (B b_1^\star)_i = \sum b_{ij}b_{j1}^\star = \sum_{j \in R'_1} b_{ij} - \sum_{j \in R'_2} b_{ij} = 0
 $$
 
-因此$\lvert \\{i \in R \mid b_{ij} \neq 0\\} \rvert$$为偶数。
+因此$\lvert \\{i \in R \mid b_{ij} \neq 0\\} \rvert$为偶数。
 因而，当$i = 2, 3, \ldots, k$时，对于$R$的任意分割，都有$\sum_{j} b_{ij} - \sum_{j} b_{ij}$的值为偶数。
 
 而由归纳假设，存在$R$的一个分割$R_1$与$R_2$，使得对于任意的$i$，我们有
