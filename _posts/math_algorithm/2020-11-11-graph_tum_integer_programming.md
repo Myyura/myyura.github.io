@@ -158,7 +158,7 @@ $$
 $$
 
 $$
-\text{subject to} Ax \le b, x \in \mathbb{Z}_+^n
+\text{subject to } Ax \le b, x \in \mathbb{Z}_+^n
 $$
 
 我们可以写出其所对应的线性松弛问题
@@ -168,7 +168,7 @@ $$
 $$
 
 $$
-\text{subject to} Ax \le b
+\text{subject to } Ax \le b
 $$
 
 也即去掉决策变量必须为整数的约束。
@@ -234,7 +234,7 @@ B b_1^\star = B B^\star e_1^T = B \text{det}(B) B^{-1} e_1^T = \text{det}(B) e_1
 $$
 
 因此$b_1^\star$为非零向量，
-于是有$R=\{i \mid b_{i1}^\star \neq 0\}$非空，
+于是有$R=\{\{i \mid b_{i1}^\star \neq 0\}\}$非空，
 于是我们令$R'_1 = \{i \in R \mid b_{i1}^\star =1\}$，$R'_2=\{i \in R \mid b_{i1}^\star =-1\}$，对于$i = 2, 3, \ldots, k$，我们有
 
 $$
