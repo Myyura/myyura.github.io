@@ -79,19 +79,19 @@ $$
 
 关于顶点，我们首先证明一个其关于凸组合的性质
 
-> 令多面体$P=\{x \in mathcal{R}^n \mid Ax \le b\}, A = (A_1, \ldots, A_m) \in \mathcal{R}^{m \times n}, b = (b_1, \ldots, b_m) \in \mathcal{R}^m$，则$\bar{x} \in P$是多面体的一个顶点当且仅当$\bar{x} = \alpha y + (1-\alpha)z, \alpha \in [0, 1], y, z \in P$可推出$\bar{x} = y$或者$\bar{x} = z$。
+> 令多面体$P=\{x \in \mathcal{R}^n \mid Ax \le b\}, A = (A_1, \ldots, A_m) \in \mathcal{R}^{m \times n}, b = (b_1, \ldots, b_m) \in \mathcal{R}^m$，则$\bar{x} \in P$是多面体的一个顶点当且仅当$\bar{x} = \alpha y + (1-\alpha)z, \alpha \in [0, 1], y, z \in P$可推出$\bar{x} = y$或者$\bar{x} = z$。
 
-由顶点的定义，我们知道有$n$条线性无关的约束在其之上是严格等的，因此我们令$A^* \in \mathcal{R}^{n \times n}, b \in \mathcal{R}^n$对应这$n$条线性无关的约束，则有$A^* \bar{x} = b^*$。
+由顶点的定义，我们知道有$n$条线性无关的约束在其之上是严格等的，因此我们令$A^\star \in \mathcal{R}^{n \times n}, b \in \mathcal{R}^n$对应这$n$条线性无关的约束，则有$A^\star \bar{x} = b^\star$。
 
-不妨设$\bar{x} = \alpha y + (1-\alpha)z$，其中$\alpha \in [0,1], y,z \in P$且$y \neq \bar{x}, z \neq bar{x}$。
-因而有$A^* y \le b^*, A^* z \le b^*$，进而
+不妨设$\bar{x} = \alpha y + (1-\alpha)z$，其中$\alpha \in [0,1], y,z \in P$且$y \neq \bar{x}, z \neq \bar{x}$。
+因而有$A^\star y \le b^\star$，$A^\star z \le b^\star$，进而
 
 $$
-A^* \bar{x} = b^* = \alpha A^* y + (1-\alpha) a^* Z
+A^\star \bar{x} = b^\star = \alpha A^\star y + (1-\alpha) a^\star Z
 $$
 
 很显然$\alpha \in (0, 1)$，否则$\bar{x}$要么为$y$要么为$z$。
-此时由等式可以推出$A^* \bar{x} = A^* y = A^* z = b^*$，而由于$A^*$可逆，意味着此时$\bar{x} = y = z$。
+此时由等式可以推出$A^\star \bar{x} = A^\star y = A^\star z = b^\star$，而由于$A^\star$可逆，意味着此时$\bar{x} = y = z$。
 
 假设$\bar{x}$不是一个顶点，那么根据定义，不存在$n$条线性无关的约束使得其于$\bar{x}$上是严格等的。
 令$I = \{i \mid A_i^T \bar{x} = b_i\}$，$I$中线性无关的向量至多有$n - 1$个，不妨设其为$(A_1, A_2, \ldots, A_{n - 1})$，则应存在一个非零向量$d$使得$(A_1^T, A_2^T, \ldots, A_{n - 1}^T) d = 0$。
@@ -119,16 +119,16 @@ $$
 假设该问题的最优值（Optimal Value，即最优解所取得的目标函数值）为$k$，令$Q = \{x \mid Ax \le b, c^Tx = k\}$为最优解的集合。
 很明显$Q \subseteq P$。
 由于$P$是有顶点的，不难证明$Q$也至少应该含有一个顶点（这实际上非常符合直觉---在一个封闭/半封闭的空间里框出的一个子空间，同样也应该是封闭/半封闭的）。
-令$x^*$为$Q$的一个顶点，假设其不为$P$的顶点，则存在$y \neq x^*, z \neq x^*, \alpha \in [0, 1]$使得
+令$x^\star$为$Q$的一个顶点，假设其不为$P$的顶点，则存在$y \neq x^\star, z \neq x^\star, \alpha \in [0, 1]$使得
 
 $$
-x^* = \alpha y + (1 - \alpha)z
+x^\star = \alpha y + (1 - \alpha)z
 $$
 
 左右同乘$c^T$，我们有
 
 $$
-c^T x^* = k = \alpha c^T y + (1-\alpha)c^T z
+c^T x^\star = k = \alpha c^T y + (1-\alpha)c^T z
 $$
 
 由于$k$已经是最优值，而该线性规划是一个最大化问题，因此我们有
@@ -143,7 +143,7 @@ $$
 c^T y = c^T z = k
 $$
 
-即$y, z \in Q$，这说明$x^*$并非$Q$的顶点，矛盾。
+即$y, z \in Q$，这说明$x^\star$并非$Q$的顶点，矛盾。
 
 --------------------------
 
@@ -179,18 +179,18 @@ $$
 于是接下来的问题便是，什么样的线性规划问题的最优解，或者说其所对应的多面体的顶点都是整数点呢？
 
 首先我们来看看顶点应该具备什么样的形式。
-设多面体$P=\{x \in mathcal{R}^n \mid Ax \le b\}$至少含有一个顶点$\bar{x}$，其所对应的$n$个线性无关的严格等约束为$A^* \bar{x} = b^*$。
+设多面体$P=\{x \in mathcal{R}^n \mid Ax \le b\}$至少含有一个顶点$\bar{x}$，其所对应的$n$个线性无关的严格等约束为$A^\star \bar{x} = b^\star$。
 
-由$A^*$的可逆性，我们有$\bar{x} = (A^*)^{-1} b^*$。因此，首先我们需要向量$b^*$为整数，进而根据克莱姆法则（Cramer's Rule），设$\bar{x} = (\bar{x}_1, \ldots, \bar{x}_n)$我们有
+由$A^\star$的可逆性，我们有$\bar{x} = (A^\star)^{-1} b^\star$。因此，首先我们需要向量$b^\star$为整数，进而根据克莱姆法则（Cramer's Rule），设$\bar{x} = (\bar{x}_1, \ldots, \bar{x}_n)$我们有
 
 $$
-\bar{x}_j = \frac{\text{det}(A^*)_j}{\text{det}(A^*)}
+\bar{x}_j = \frac{\text{det}(A^\star)_j}{\text{det}(A^\star)}
 $$
 
-其中$(A^*)_j$是将$A^*$的第$j$列替换为$b$的矩阵。
+其中$(A^\star)_j$是将$A^\star$的第$j$列替换为$b$的矩阵。
 因此，为了保证$\bar{x}_j$为整数，我们可以提出如下充分条件
 
-> 设线性规划问题所对应的多面体$P=\{x \in mathcal{R}^n \mid Ax \le b\}$至少含有一个顶点$\bar{x}$，其所对应的$n$个线性无关的严格等约束为$A^* \bar{x} = b^*$，向量$b$为整数向量，若$\text{det}(A^*)=\pm 1$，则线性规划问题的最优解是整数解。
+> 设线性规划问题所对应的多面体$P=\{x \in mathcal{R}^n \mid Ax \le b\}$至少含有一个顶点$\bar{x}$，其所对应的$n$个线性无关的严格等约束为$A^\star \bar{x} = b^\star$，向量$b$为整数向量，若$\text{det}(A^\star)=\pm 1$，则线性规划问题的最优解是整数解。
 
 进而
 
@@ -220,23 +220,23 @@ $$
 这里我们不妨设$\text{det}(B) \neq 0$，由归纳假设以及克莱姆法则可知
 
 $$
-B^{-1} = \frac{B^*}{\text{det}(B)}
+B^{-1} = \frac{B^\star}{\text{det}(B)}
 $$
 
-其中$B^*$的每个元素$b_{ij}^*$为$A$的$(k-1) \times (k-1)$大小的子阵的行列式，根据归纳假设其值为$0, 1$或者$-1$。
+其中$B^\star$的每个元素$b_{ij}^\star$为$A$的$(k-1) \times (k-1)$大小的子阵的行列式，根据归纳假设其值为$0, 1$或者$-1$。
 
-令$b_1^*$为$B^*$的第一列，$e_1 = (1, 0, \ldots, 0)$为$k$维向量，则有$b_1^* = B^* e_1^T$。
+令$b_1^\star$为$B^\star$的第一列，$e_1 = (1, 0, \ldots, 0)$为$k$维向量，则有$b_1^\star = B^\star e_1^T$。
 
 进而有
 
 $$
-B b_1^* = B B^* e_1^T = B \text{det}(B) B^{-1} e_1^T = \text{det}(B) e_1^T
+B b_1^\star = B B^\star e_1^T = B \text{det}(B) B^{-1} e_1^T = \text{det}(B) e_1^T
 $$
 
-因此$b_1^*$为非零向量，于是有$R = \{i \mid b_{i1}^* \neq 0\}$非空，于是我们令$R'_1 = \{i \in R \mid b_{i1}^* =1\}$，$R'_2=\{i \in R \mid b_{i1}^* =-1\}$，对于$i = 2, 3, \ldots, k$，我们有
+因此$b_1^\star$为非零向量，于是有$R = \{i \mid b_{i1}^\star \neq 0\}$非空，于是我们令$R'_1 = \{i \in R \mid b_{i1}^\star =1\}$，$R'_2=\{i \in R \mid b_{i1}^\star =-1\}$，对于$i = 2, 3, \ldots, k$，我们有
 
 $$
-(B b_1^*)_i = \sum b_{ij}b_{j1}^* = \sum_{j \in R'_1} b_{ij} - \sum_{j \in R'_2} b_{ij} = 0
+(B b_1^\star)_i = \sum b_{ij}b_{j1}^\star = \sum_{j \in R'_1} b_{ij} - \sum_{j \in R'_2} b_{ij} = 0
 $$
 
 因此$\lvert \{i \in R \mid b_{ij} \neq 0\} \rvert$为偶数。
@@ -269,13 +269,13 @@ $$
 
 倘若$\alpha = 0$，则会有$By = 0$。考虑到$\text{det}(B) \neq 0$，我们可知$y = 0$，这意味着$R = \emptyset$，因此$\alpha \neq 0$，由题设条件可知$\alpha = 1$。
 
-因而有$By^T = \pm e_1^T$。注意到$B b_1^* = \text{det}(B) e_1^T$，于是有
+因而有$By^T = \pm e_1^T$。注意到$B b_1^\star = \text{det}(B) e_1^T$，于是有
 
 $$
-y^T = \pm B^{-1} e_1^T = \pm \frac{1}{\text{det}(B)} b_1^*
+y^T = \pm B^{-1} e_1^T = \pm \frac{1}{\text{det}(B)} b_1^\star
 $$
 
-因为$y$与$b_1^*$均为$0, 1$或者$-1$所构成的向量，我们可以得到$\text{det}(B) = \pm 1$，命题得证。
+因为$y$与$b_1^\star$均为$0, 1$或者$-1$所构成的向量，我们可以得到$\text{det}(B) = \pm 1$，命题得证。
 
 --------------------------
 
