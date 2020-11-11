@@ -233,7 +233,9 @@ $$
 B b_1^\star = B B^\star e_1^T = B \text{det}(B) B^{-1} e_1^T = \text{det}(B) e_1^T
 $$
 
-因此$b_1^\star$为非零向量，于是有$R=\{i \mid b_{i1}^\star \neq 0\}$非空，于是我们令$R_1^' = \{i \in R \mid b_{i1}^\star =1\}$，$R_2^'=\{i \in R \mid b_{i1}^\star =-1\}$，对于$i = 2, 3, \ldots, k$，我们有
+因此$b_1^\star$为非零向量，
+于是有$R=\{i \mid b_{i1}^\star \neq 0\}$非空，
+于是我们令$R'_1 = \{i \in R \mid b_{i1}^\star =1\}$，$R'_2=\{i \in R \mid b_{i1}^\star =-1\}$，对于$i = 2, 3, \ldots, k$，我们有
 
 $$
 (B b_1^\star)_i = \sum b_{ij}b_{j1}^\star = \sum_{j \in R'_1} b_{ij} - \sum_{j \in R'_2} b_{ij} = 0
@@ -258,11 +260,11 @@ $$
 我们定义
 
 $$
-y=(y_1, \ldots, y_k)\left\{
+y=(y_1, \ldots, y_k)=\left\{
 \begin{aligned}
-1,   &i \in R_1 \\
--1,   &i \in R_2 \\
-0,   &i \notin R
+1,   \quad&i \in R_1 \\
+-1,   \quad&i \in R_2 \\
+0,   \quad&i \notin R
 \end{aligned}
 \right.
 $$
@@ -312,11 +314,11 @@ $$
 我们通常会通过行生成（Column Generation）的方式去求解---令$x_{uv} \in \{0, 1\}$表示边$uv$是否被选中，则通常我们用
 
 $$
-\sum_v x_uv = 1, \forall u
+\sum_v x_uv = 1, \qquad \forall u
 $$
 
 $$
-\sum_u x_uv = 1, \forall v
+\sum_u x_uv = 1, \qquad \forall v
 $$
 
 来限定任意一点的度数为$2$。
