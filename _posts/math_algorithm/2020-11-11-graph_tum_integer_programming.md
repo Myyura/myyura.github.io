@@ -28,8 +28,10 @@ $$
 其中$x = (x_1, x_2, \ldots, x_n) \in \mathcal{R}^n$，而其中的每个$x_j$被称之为决策变量（Decision Variable）。
 矩阵$A \in \mathcal{R}^{m \times n}$与向量$b = (b_1, b_2, \ldots, b_m) \in \mathcal{R}^m$决定了$m$条不等式约束（Inequality Constraints），其中$A$的第$i$行$A_i$与$b_i$组成了约束$(A_i)^Tx \le b_i$。
 而向量$c \in \mathcal{R}^n$可以看做是决策向量中每一部分的权重。
+
 我们把满足约束条件的$x$称之为解，而所有的解所构成的集合我们称之为解空间（Solution Space）。
-我们的最终目的是希望得到一个使得目标函数（Objective Function）$c^Tx$最大的解，也成为最优解（Optimal Solution）。
+
+我们的最终目的是希望得到一个使得目标函数（Objective Function）$c^Tx$最大的解，也称为最优解（Optimal Solution）。
 
 此外，对于最大化问题，倘若目标函数可以取到无穷大，亦或者是解空间为空集，我们说该线性规划问题的解是不存在的。
 
@@ -81,9 +83,10 @@ $$
 
 > 令多面体$P=\\{x \in \mathcal{R}^n \mid Ax \le b\\}, A = (A_1, \ldots, A_m) \in \mathcal{R}^{m \times n}, b = (b_1, \ldots, b_m) \in \mathcal{R}^m$，则$\bar{x} \in P$是多面体的一个顶点当且仅当$\bar{x} = \alpha y + (1-\alpha)z, \alpha \in [0, 1], y, z \in P$可推出$\bar{x} = y$或者$\bar{x} = z$。
 
-由顶点的定义，我们知道有$n$条线性无关的约束在其之上是严格等的，因此我们令$A^\star \in \mathcal{R}^{n \times n}, b \in \mathcal{R}^n$对应这$n$条线性无关的约束，则有$A^\star \bar{x} = b^\star$。
+由顶点的定义，我们知道有$n$条线性无关的约束在其之上是严格等的，因此我们令$A^\star \in \mathcal{R}^{n \times n}, b^\star \in \mathcal{R}^n$对应这$n$条线性无关的约束，则有$A^\star \bar{x} = b^\star$。
 
 不妨设$\bar{x} = \alpha y + (1-\alpha)z$，其中$\alpha \in [0,1], y,z \in P$且$y \neq \bar{x}, z \neq \bar{x}$。
+
 因而有$A^\star y \le b^\star$，$A^\star z \le b^\star$，进而
 
 $$
@@ -154,7 +157,7 @@ $$
 对于一个典型的整数规划问题
 
 $$
-\text{maximaize } c^T x
+\text{maximize } c^T x
 $$
 
 $$
@@ -164,7 +167,7 @@ $$
 我们可以写出其所对应的线性松弛问题
 
 $$
-\text{maximaize } c^T x
+\text{maximize } c^T x
 $$
 
 $$
