@@ -54,7 +54,7 @@ $$
 
 ## 2. 生成树
 
-无向连通图$G = (V, E)$的生成树（Spanning Tree）$T = (V, E_T) \subsetsq G$是$G$的一种特殊子图，其为一棵树且拥有和$G$相同的点集。
+无向连通图$G = (V, E)$的生成树（Spanning Tree）$T = (V, E_T) \subseteq G$是$G$的一种特殊子图，其为一棵树且拥有和$G$相同的点集。
 
 
 生成树可以从某种意义上看做是图$G$的骨架，在之前的[图描画与整数规划・交叉数][m5]扮演着重要的角色。
@@ -71,7 +71,7 @@ $$
 这里$L^G$为$G = (V = \{v_1, v_2, \ldots, v_n\}, E)$的拉普拉斯矩阵，其定义如下：
 
 $$
-L^_{i,j} = \left\{
+L^G_{i,j} = \left\{
 \begin{array}{ll}
 $d(v_i)$ & \text{if $i = j$} \\
 -1 & \text{if $i \neq j$ and $(v_i, v_j) \in E$} \\
@@ -169,7 +169,7 @@ n-1 & \cdots & -1  \\
 \end{pmatrix}
 $$
 
-这里$n = \lvert V \rvert|$，不难算出$\text{det}(L^G_{[i]}) = n^{n - 2}$，也即凯莱公式（Cayley's formula）。
+这里$n = \lvert V \rvert$，不难算出$\text{det}(L^G_{[i]}) = n^{n - 2}$，也即凯莱公式（Cayley's formula）。
 
 
 事实上，凯莱公式这一特殊情况可以藉由我们以前提到过的生成函数来证明
@@ -191,15 +191,15 @@ Q &= P_{n-1} (x_1 + x_2 + \ldots + x_{n-1}) \\
 \end{align}
 $$
 
-这是一个很有趣的结果，它告诉我们若$\alpha_n = 0$，$x^{\alpha_1}_1 x^{\alpha_2}_2 \cdots x^{\alpha_n}_n$的系数和$(x_1 + x_2 + \dots + x_{n-1})^{n-1}$是一样的。
+这是一个很有趣的结果，它告诉我们若$\alpha_n = 0$，则$x^{\alpha_1}_1 x^{\alpha_2}_2 \cdots x^{\alpha_n}_n$的系数和$(x_1 + x_2 + \dots + x_{n-1})^{n-1}$是一样的。
 
 而同时我们还知道这样两条事实，第一，若$\alpha_n = 0$，此时$Q$实际上就是$P_n$；其次，$P_n$与$Q$中度为$n-1$的变量
 
 那么若$P_n \neq (x_1 + x_2 + \cdots + x_n)^{n-1}$，我们假定其中存在某项$x^{\alpha_1}_1 x^{\alpha_2}_2 \cdots x^{\alpha_n}_n$不相同。
 注意到$P_n$实际上是一个度数为$n-1$齐次对称的多项式，一个点至多有$n-1$和孩子，多项式$(x_1 + x_2 + \cdots + x_n)^{n-1}$亦是如此。
 
-由$\sum_i \alpha_i = n-1$可知，存在一个$\alpha_{i^*} = 0$的变量$x_i$。
-不是一般性，我们假设这里$i^* = n$。
+由$\sum_i \alpha_i = n-1$可知，存在一个$\alpha_{i^\star} = 0$的变量$x_i$。
+不是一般性，我们假设这里$i^\star = n$。
 
 由$P_n$的对称性可知若存在一项不同，则至少还会存在另一项不同，但上面提到的事实告诉我们，若$\alpha_n = 0$，$P_n = (x_1 + x_2 + \cdots + x_n)^{n-1}$，不应该存在其他不同项，产生了矛盾。
 
