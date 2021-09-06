@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: false
-title: 译四・Fami通・异度神剑特集访谈译文
+title: 译・Fami通・异度神剑特集访谈译文
 category: game
 tags: [monolith, interview, game]
 ---

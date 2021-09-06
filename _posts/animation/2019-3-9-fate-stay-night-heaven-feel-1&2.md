@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: false
-title: 葉一・Fate/Stay Night - Heaven's Feel・观后感
+title: 葉・Fate/Stay Night - Heaven's Feel・观后感
 category: animation
 tags: [fate]
 ---

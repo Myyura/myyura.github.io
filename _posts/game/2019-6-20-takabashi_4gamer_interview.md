@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: false
-title: 译一・4Gamer・「原田が斬る」高橋哲哉特别访谈
+title: 译・4Gamer・「原田が斬る」高橋哲哉特别访谈
 category: game
 tags: [monolith, interview, game]
 ---

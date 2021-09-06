@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: 算二・AKS算法・预备知识・算法篇
+title: 算数・AKS算法・预备知识・算法篇
 category: algorithm
 tags: [algorithm, primality-test, number-theory, mathematics]
 ---

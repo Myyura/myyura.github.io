@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: false
-title: 译二・Fami通・Fire Emblem 風花雪月・开发者访谈
+title: 译・Fami通・Fire Emblem 風花雪月・开发者访谈
 category: game
 tags: [fire emblem, interview, game]
 ---

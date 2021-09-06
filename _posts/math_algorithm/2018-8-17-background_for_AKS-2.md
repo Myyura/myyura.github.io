@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: 数四・AKS算法・预备知识・数学篇
+title: 算数・AKS算法・预备知识・数学篇
 category: mathematics
 tags: [primality-test, number-theory, mathematics]
 ---
@@ -145,7 +145,7 @@ $$
 0 \le I \le (\frac{1}{4})^n
 $$
 
-回忆起我们在[数一][myyura1]中学到的东西，我们有
+回忆起我们在[二项式系数与组合恒等式][myyura1]中学到的东西，我们有
 
 $$
 \begin{align}

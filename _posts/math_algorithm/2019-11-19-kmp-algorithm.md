@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: 算四・KMP算法
+title: 算数・KMP算法
 category: algorithm
 tags: [algorithm, string-matching-algorithm]
 ---

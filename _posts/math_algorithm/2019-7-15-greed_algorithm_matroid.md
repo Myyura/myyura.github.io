@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: 算三・拟阵与贪心算法
+title: 算数・拟阵与贪心算法
 category: algorithm
 tags: [algorithm, greedy-algorithm, matroid, mathematics]
 ---

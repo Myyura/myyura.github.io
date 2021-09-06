@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: 数五・图描画与整数规划・交叉数
+title: 算数・图描画与整数规划・交叉数
 category: mathematics
 tags: [mathematics, graph-drawing, integer-programming]
 ---

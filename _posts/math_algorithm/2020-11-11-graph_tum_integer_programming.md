@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: 数七・图与整数规划之全单模矩阵
+title: 算数・图与整数规划之全单模矩阵
 category: mathematics
 tags: [mathematics, graph-theory, integer-programming]
 ---

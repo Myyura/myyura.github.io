@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: false
-title: 译三・4Gamer・上田文人对话陈星汉访谈译文
+title: 译・4Gamer・上田文人对话陈星汉访谈译文
 category: game
 tags: [Ueda-Fumito, Jenova-Chen, interview, game]
 ---

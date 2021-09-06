@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: false
-title: 食二・杯面・日本篇・续
+title: 食・杯面・日本篇・续
 category: food
 tags: [food, cupnoodle]
 ---
