@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: 数八・图论其二・树
+title: 算数・图论其二・树
 category: mathematics
 tags: [mathematics, graph-theory]
 ---
