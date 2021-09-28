@@ -6,7 +6,7 @@ category: mathematics
 tags: [mathematics, graph-theory]
 ---
 
-图论（Graph Theory）其三・树（Tree）
+图论（Graph Theory）其二・树（Tree）
 
 
 ## 前言
@@ -73,7 +73,7 @@ $$
 $$
 L^G_{i,j} = \left\{
 \begin{array}{ll}
-$d(v_i)$ & \text{if $i = j$} \\
+d(v_i) & \text{if $i = j$} \\
 -1 & \text{if $i \neq j$ and $(v_i, v_j) \in E$} \\
 0 & \text{otherwise}
 \end{array}
