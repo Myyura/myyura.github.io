@@ -47,7 +47,7 @@ tags: [mathematics, graph-theory]
 反过来，如果图中没有度数为奇数的顶点，这意味着每个点至少与两条边相连。那么我们可以随便从一个点出发，途径某些顶点最终回到起始点，构成一个圈。如果这个圈就是一条欧拉回路，那么万事休矣。若非如此，我们可以将该圈上的边从图中删去，由于圈上每个点的度数为2，这意味着删去之后的图所有顶点的度数仍为偶数，于是我们重复这个寻找圈的过程，如下图所示。
 
 <figure style="text-align:center;">
-  <img src="{{ site.BASE_PATH }}/assets/images/euler_path_1.png" width="1100" alt="1"/>
+  <img src="{{ site.BASE_PATH }}/assets/images/euler_path_1.png" width="768" alt="1"/>
 </figure>
 
 两个相互连接的圈实际上可以看做是一个更大的圈，因而这些圈组合起来，便是一条欧拉回路了。若是图中有两个奇数度数的顶点$u, v$，我们可以在一开始额外加入一条边$uv$。在最终得到欧拉回路之后将其删去，也就得到了一条起点与终点分别为$u$与$v$的欧拉路径。 $\square$
