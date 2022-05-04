@@ -2,7 +2,7 @@
 layout: post
 mathjax: true
 title: 算数・强化学习其一・策略学习
-category: machine-learning
+category: AI
 tags: [machine-learning, reinforcement-learning]
 ---
 
