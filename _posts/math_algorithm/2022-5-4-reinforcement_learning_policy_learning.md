@@ -234,6 +234,7 @@ $$
 
 倘若我们将这种展开一直做下去，最终的式子里也就不在包含有含$\nabla_\theta V^{\pi_\theta}(s)$的项，
 而由于在
+
 $$\phi(s) = \sum_{a  } \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a)$$
 
 中我们并不需要动作价值的梯度$\nabla Q^{\pi_\theta}(s,a)$。
