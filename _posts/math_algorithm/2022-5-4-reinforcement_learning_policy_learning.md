@@ -114,7 +114,7 @@ $$Q^{\pi_{\theta}}(s,a) = E_{\tau \sim \pi_{\theta}}[R(\tau) \mid s_0=s, a_0=a]$
 
 
 我们在这里做一个简化，假设动作价值跟$\theta$无关
-（实际上动作价值$Q^{\pi_{\theta}}(s,a)$与$\pi_{\theta}$是有关联的，只是这个简化并不影响最终结果，却会将后续变得格外复杂---考虑到大家应该都跟我一样，肯定是不爱看长篇的数学公式的，于是便省去了）。
+（实际上动作价值$Q^{\pi_{\theta}}(s,a)$与$\pi_{\theta}$是有关联的，严格一点的证明参考附录）。
 那么第一节末尾的梯度可以写为
 
 $$
@@ -183,3 +183,64 @@ $$Q^{\pi_{\theta}}(s,a) = E_{\tau \sim \pi_{\theta}}[R(\tau) \mid s_0=s, a_0=a]$
 但考虑到策略学习中对于动作价值的利用，以及之后AlphaGo的讲解计划，遍先选择了策略学习。
 
 强化学习总的来说还是有一些有趣的---倘若你不计较绝大多数论文都复现不出来其所宣称的效果的话。
+
+## 4.附录
+这里我们来稍微严格一点的，讲述一下策略梯度计算，该证明参考了 [《Reinforcement Learning: An Introduction》(Richard S. Sutton and Andrew G. Barto) (Sec 13.2)][rl_book]。
+
+让我们从
+
+$$
+\nabla_\theta V^{\pi_\theta}(s)
+= \nabla_\theta \Big(\sum_{a  } \pi_\theta(a \vert s)Q^{\pi_\theta}(s, a) \Big)
+$$
+
+开始，首先我们根据微分的乘法法则，将上式写作
+
+$$
+\sum_{a  } \Big( \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a) + \pi_\theta(a \vert s) \nabla_\theta Q^{\pi_\theta}(s, a) \Big)
+$$
+
+接着，我们根据动作价值$Q^\pi$的定义，将第二项进行扩展，得到
+
+$$
+\sum_{a  } \Big( \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a) + \pi_\theta(a \vert s) \nabla_\theta \sum_{s', r} P(s',r \vert s,a)(r + V^{\pi_\theta}(s')) \Big)
+$$
+
+这里$P(s',r \vert s,a)$表示在当前状态$s$下采取动作$a$后转移到下一个状态$s′$并得到回报$r$的概率。
+这个概率与参数$\theta$无关，因此我们有
+
+$$
+\sum_{a  } \Big( \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a) + \pi_\theta(a \vert s) \sum_{s', r} P(s',r \vert s,a) \nabla_\theta V^{\pi_\theta}(s') \Big)
+$$
+
+且由于$P(s' \vert s,a) = \sum_r P(s',r \vert s,a)$，于是我们有
+
+$$
+\nabla_\theta V^{\pi_\theta}(s) = \sum_{a  } \Big( \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a) + \pi_\theta(a \vert s) \sum_{s'} P(s' \vert s,a) \nabla_\theta V^{\pi_\theta}(s') \Big)
+$$
+
+可以看到这个式子呈现出良好的递归样式---等式左边为$V^{\pi_\theta}(s)$，
+而右边有$\nabla_\theta V^{\pi_\theta}(s')$。
+我们将右边含有$\nabla_\theta V^{\pi_\theta}(s')$的部分进行递归展开，
+为了简化表示，我们记$\phi(s) = \sum_{a  } \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a)$，即上式的左半部分。
+
+$$
+\begin{align}
+\nabla_\theta V^{\pi_\theta}(s) &= \phi(s) + \sum_{a  } \pi_\theta(a \vert s) \sum_{s'} P(s' \vert s,a) \nabla_\theta V^{\pi_\theta}(s') \\
+&= \phi(s) + \sum_{s'} \sum_a \pi_\theta(a \vert s) P(s' \vert s,a) \nabla_\theta V^{\pi_\theta}(s') \\
+&= \phi(s) + \sum_{s'} \sum_a \pi_\theta(a \vert s) P(s' \vert s,a)\Big [\phi(s') + \sum_{s''} \sum_a \pi_\theta(a' \vert s') P(s'' \vert s',a') \nabla_\theta V^{\pi_\theta}(s'') \Big] \\
+\end{align}
+$$
+
+倘若我们将这种展开一直做下去，最终的式子里也就不在包含有含$\nabla_\theta V^{\pi_\theta}(s)$的项，
+而由于在
+$$\phi(s) = \sum_{a  } \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a)$$
+
+中我们并不需要动作价值的梯度$\nabla Q^{\pi_\theta}(s,a)$。
+因此，我们得到
+
+$$
+\frac{\partial V^{\pi_{\theta}}(s)}{\partial \theta} \propto \sum_a Q^{\pi_\theta}(s,a) \nabla_\theta \pi_\theta (a \vert s)
+$$
+
+[rl_book]: http://incompleteideas.net/book/bookdraft2017nov5.pdf
