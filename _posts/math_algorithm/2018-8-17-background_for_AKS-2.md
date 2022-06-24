@@ -224,7 +224,7 @@ $$
 >
 >（于$\mathbb{Z}_p [x]$）上成立。
 
-这里如果$d = 0$，那么这个引理就退化成了我们在[算一][a1]中提到过的费马小定理。所以这个引理实际上可以看做是费马小定理的一个推广。在接下来的证明中，我们始终假设$d \ge 1$。
+这里如果$d = 0$，那么这个引理就退化成了我们在[素性测试][a1]中提到过的费马小定理。所以这个引理实际上可以看做是费马小定理的一个推广。在接下来的证明中，我们始终假设$d \ge 1$。
 
 既然$d = 0$的时候是成立的，我们不妨用数学归纳法来证明这个引理---假设对于度数低于$d$的多项式，该引理是成立的。那么我们不妨设$f(x) = ax^d + g(x)$，其中$a \in \mathbb{Z}_p$，$g(x)$是$\mathbb{Z}_p [x]$上的一个次数低于$d$的多项式，则有
 
@@ -301,7 +301,7 @@ $d \mid k$部分的证明相比起来要容易一些，在这里我决定偷个�
 [mg]: https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n
 [field]: https://en.wikipedia.org/wiki/Field_(mathematics)
 [pr]: https://en.wikipedia.org/wiki/Polynomial_ring
-[a1]: https://myyura.github.io/2018/07/05/myyura-1.html
+[a1]: https://myyura.github.io/2018/07/20/primality-test-1.html
 [a2]: https://myyura.github.io/2018/08/03/background_for_AKS-1.html
 [ftoal]: https://en.wikipedia.org/wiki/Fundamental_theorem_of_algebra
 [lt]: https://en.wikipedia.org/wiki/Lagrange%27s_theorem_(group_theory)
