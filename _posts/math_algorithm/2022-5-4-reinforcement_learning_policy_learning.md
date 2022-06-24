@@ -152,9 +152,9 @@ $$
 > Algorithm parameters: learning rate $\alpha \in (0, 1]$
 > 1. Observe state $s_t$
 > 2. Randomly sample action $a_t$ according to $\pi_{\theta}(\cdot \mid s_t)$
-> Estimate action-value $Q^{\pi_{\theta}}(s_t,a_t)$
-> 3. Approximate policy gradient $\frac{\partial \log \pi_{\theta} (a \mid s)}{\partial \theta} Q^{\pi_{\theta}}(s,a)$
-> 4. Update policy network $\theta \leftarrow \theta + \alpha \frac{\partial \log \pi_{\theta} (a \mid s)}{\partial \theta} Q^{\pi_{\theta}}(s,a)$
+> 3. Estimate action-value $Q^{\pi_{\theta}}(s_t,a_t)$
+> 4. Approximate policy gradient $\frac{\partial \log \pi_{\theta} (a \mid s)}{\partial \theta} Q^{\pi_{\theta}}(s,a)$
+> 5. Update policy network $\theta \leftarrow \theta + \alpha \frac{\partial \log \pi_{\theta} (a \mid s)}{\partial \theta} Q^{\pi_{\theta}}(s,a)$
 
 ### 2.1 估计动作价值
 那么动作价值要如何进行估计呢？其实在之前的讲述中已经给出两套估计动作价值的方案了。
