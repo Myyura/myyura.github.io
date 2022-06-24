@@ -72,17 +72,17 @@ $$
 因为奖励也像钱一样，未来能够得到钱肯定不如现在的钱来的重要。
 
 从轨迹的定义我们可以看到，轨迹主要由两个参数确定---初始状态$s_0$与我们在轨迹（或者说，这局游戏）中所采取的策略$\pi$。
-因此，对于一个给定的初始状态$s_0 = s$，我们的目标可以认为是需要寻找到一个好的策略$\pi$，使得在依照该策略进行行动时，能够得到最大的期望回报（即$E_{\tau\sim\pi}[R(\tau)\mid s_0 = s]$）。
+因此，对于一个给定的初始状态$s_0 = s$，我们的目标可以认为是需要寻找到一个好的策略$\pi$，使得在依照该策略进行行动时，能够得到最大的期望回报（即$\mathbb{E}_{\tau\sim\pi}[R(\tau)\mid s_0 = s]$）。
 
 我们把这个期望回报称为状态价值（State-Value），用$V^{\pi}(s)$表示。
 这个称呼是非常合适的，因为它确确实实描述了一个策略$\pi$在给定起始状态$s$的情况下所对应的价值---该策略所能获得的期望回报。
 
 当然，只能够应对特定的一些状态的策略肯定是不太够的，要能够应对千奇百怪得初始状态。
-因此我们“强化”的最终目标，便是能够学得一个好的策略$\pi$，使得$E_s[V^{\pi}(s))]$尽可能得大。
+因此我们“强化”的最终目标，便是能够学得一个好的策略$\pi$，使得$\mathbb{E}_s[V^{\pi}(s))]$尽可能得大。
 
 在现在这个深度学习当道的年代，我们的策略函数$\pi$自然也会使用神经网络来进行拟合。
 
-对于一个参数为$\theta$的策略网络$\pi_{\theta}$，增大$J(\theta) = E_s[V^{\pi_{\theta}}(s))]$的方法实际上非常简单，
+对于一个参数为$\theta$的策略网络$\pi_{\theta}$，增大$J(\theta) = \mathbb{E}_s[V^{\pi_{\theta}}(s))]$的方法实际上非常简单，
 我们只需要在观察到一个状态$s$之后，做一个简单的梯度上升即可（$\alpha$为学习率）
 
 $$
@@ -105,7 +105,7 @@ $$
 
 其中
 
-$$Q^{\pi_{\theta}}(s,a) = E_{\tau \sim \pi_{\theta}}[R(\tau) \mid s_0=s, a_0=a]$$
+$$Q^{\pi_{\theta}}(s,a) = \mathbb{E}_{\tau \sim \pi_{\theta}}[R(\tau) \mid s_0=s, a_0=a]$$
 
 这个$Q^{\pi_{\theta}}(s,a)$所表述的是，在给定状态$s$的情况下，执行动作$a$之后，
 依照策略$\pi_{\theta}$进行行动所能得到的期望收益。
@@ -121,7 +121,7 @@ $$
 \begin{align}
 \frac{\partial V^{\pi_{\theta}}(s)}{\partial \theta} &= \frac{\partial \sum_{a} \pi_{\theta} (a\mid s) Q^{\pi_{\theta}}(s,a)}{\partial \theta} \\
 &= \sum_{a} \pi_{\theta} (a\mid s) \frac{\partial \log \pi_{\theta} (a \mid s)}{\partial \theta} Q^{\pi_{\theta}}(s,a) \\
-&= E_a [\frac{\partial \log \pi_{\theta} (a \mid s)}{\partial \theta} Q^{\pi_{\theta}}(s,a)]
+&= \mathbb{E}_a [\frac{\partial \log \pi_{\theta} (a \mid s)}{\partial \theta} Q^{\pi_{\theta}}(s,a)]
 \end{align}
 $$
 
@@ -164,7 +164,7 @@ $$R(\tau) = \sum_{i=0}^n \gamma^i r_i$$
 
 作为动作价值
 
-$$Q^{\pi_{\theta}}(s,a) = E_{\tau \sim \pi_{\theta}}[R(\tau) \mid s_0=s, a_0=a]$$
+$$Q^{\pi_{\theta}}(s,a) = \mathbb{E}_{\tau \sim \pi_{\theta}}[R(\tau) \mid s_0=s, a_0=a]$$
 
 的估计。这种估计方案也被称作REINFORCE。
 使用REINFORCE这种方案，由于需要在整局游戏结束之后才能对动作价值进行估计，因此对于网络的更新也需要在一局游戏结束之后，才能将上述的算法应用在轨迹中的每一个元组$(s_t, a_t, r_t)$之上，对网络参数进行更新。
