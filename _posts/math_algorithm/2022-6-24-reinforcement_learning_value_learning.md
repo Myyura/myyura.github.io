@@ -212,7 +212,7 @@ $$
 
 > Algorithm parameters: discounted ratio $\gamma \in [0, 1]$, learning rate $\alpha \in (0, 1]$
 > 1. Observe a transition $(s_t, a_t, r_t, s_{t+1})$
-> 2. Select an action $a^*_{t+1} = \text{argmax}_a Q(s_{t+1}, a; \theta)$
+> 2. Select an action $a^*_{t+1}$ of maximum action-values (using $Q(s_{t+1}, a; \theta)$), i.e. $a^*_{t+1} = \text{argmax}_a Q(s_{t+1}, a; \theta)$
 > 3. TD Target: $y_t = r_t + \gamma Q(s_{t+1}, a^*_{t+1}; \theta')$
 > 4. Loss (TD Error): $L = \frac{1}{2} (y_t - Q(s_t, a_t; \theta))^2$
 > 5. Update: $\theta \leftarrow \theta - \alpha \frac{\partial L}{\partial \theta}$
