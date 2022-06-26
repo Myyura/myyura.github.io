@@ -102,7 +102,7 @@ $$
 而由于$Q^*$是最优动作价值，我们理应选择最优动作价值最大的动作（也即最优策略），即
 
 $$
-A_{t+1} = \argmax_a Q^*(s_{t+1}, a)
+A_{t+1} = \text{argmax}_a Q^*(s_{t+1}, a)
 $$
 
 因此我们有
@@ -119,7 +119,7 @@ $$
 
 因此我们只需要将SARSA算法中计算TD Target的部分更改为
 
-> 3. TD Target: $y_t = r_t + \gamma \max_a Q(s_{t+1}, a_{t+1}; \theta)$
+> TD Target: $y_t = r_t + \gamma \max_a Q(s_{t+1}, a_{t+1}; \theta)$
 
 这个学习最优动作价值的算法便是Q-learning算法。
 从形式上来说，Q-learning与SARSA非常相似，但却有本质的不同。
@@ -132,8 +132,15 @@ $$
 
 Q-learning看起来非常好，但却存在一个非常严重的问题，被称为过估计（或者高估），即我们学习到的动作价值往往是被高估的。
 当这种高估不均匀的时候，可能会导致我们选到不好的动作。
-譬如在某状态$s$下有两个可选动作$a_1$与$a_2$，其最优状态动作价值分别为$Q^*(s,a_1)=50, Q^*(s,a_2)=80$。
-按理说我们应该选择动作$a_2$，但若动作价值存在非均匀的高估，例如我们实际计算得到的动作价值分别为$Q^*(s,a_1)=100, Q^*(s,a_2)=90$，那么我们就可能选择动作价值较低的动作$a_1$。
+譬如在某状态$s$下有两个可选动作$a_1$与$a_2$，其最优状态动作价值分别为
+
+$$Q^*(s,a_1)=50, Q^*(s,a_2)=80$$
+
+按理说我们应该选择动作$a_2$，但若动作价值存在非均匀的高估，例如我们实际计算得到的动作价值分别为
+
+$$Q^*(s,a_1)=100, Q^*(s,a_2)=90$$
+
+那么我们就可能选择动作价值较低的动作$a_1$。
 
 造成这种非均匀过估计的原因主要有两个---最大化（Maximization）与自举（Bootstrapping）。
 
@@ -205,7 +212,7 @@ $$
 
 > Algorithm parameters: discounted ratio $\gamma \in [0, 1]$, learning rate $\alpha \in (0, 1]$
 > 1. Observe a transition $(s_t, a_t, r_t, s_{t+1})$
-> 2. Select an action $a^*_{t+1} = \argmax_a Q(s_{t+1}, a; \theta)$
+> 2. Select an action $a^*_{t+1} = \text{argmax}_a Q(s_{t+1}, a; \theta)$
 > 3. TD Target: $y_t = r_t + \gamma Q(s_{t+1}, a^*_{t+1}; \theta')$
 > 4. Loss (TD Error): $L = \frac{1}{2} (y_t - Q(s_t, a_t; \theta))^2$
 > 5. Update: $\theta \leftarrow \theta - \alpha \frac{\partial L}{\partial \theta}$
