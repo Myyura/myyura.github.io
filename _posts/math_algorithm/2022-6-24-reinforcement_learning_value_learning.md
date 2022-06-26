@@ -84,37 +84,37 @@ $r_t + \gamma Q^\pi (s_{t+1}, a_{t+1})$。
 因此，我们可以考虑一步到位，直接学习最优动作价值
 
 $$
-Q^*(s,a) = \max_\pi Q^\pi (s,a)
+Q^\star(s,a) = \max_\pi Q^\pi (s,a)
 $$
 
-那么根据第一章节中的推导，令$\pi^*$表示最优策略，我们有
+那么根据第一章节中的推导，令$\pi^\star$表示最优策略，我们有
 
 $$
-Q^{\pi^*}(s_t, a_t) = \mathbb{E}_{\tau_t \sim \pi^*} [r_t + \gamma Q^{\pi^*} (s_{t+1}, A_{t+1}) \mid S_t=s_t, A_t=a_t]
+Q^{\pi^\star}(s_t, a_t) = \mathbb{E}_{\tau_t \sim \pi^\star} [r_t + \gamma Q^{\pi^\star} (s_{t+1}, A_{t+1}) \mid S_t=s_t, A_t=a_t]
 $$
 
 即
 
 $$
-Q^*(s_t, a_t) = \mathbb{E}_{\tau_t \sim \pi^*} [r_t + \gamma Q^* (s_{t+1}, A_{t+1}) \mid S_t=s_t, A_t=a_t]
+Q^\star(s_t, a_t) = \mathbb{E}_{\tau_t \sim \pi^\star} [r_t + \gamma Q^\star (s_{t+1}, A_{t+1}) \mid S_t=s_t, A_t=a_t]
 $$
 
-而由于$Q^*$是最优动作价值，我们理应选择最优动作价值最大的动作（也即最优策略），即
+而由于$Q^\star$是最优动作价值，我们理应选择最优动作价值最大的动作（也即最优策略），即
 
 $$
-A_{t+1} = \text{argmax}_a Q^*(s_{t+1}, a)
+A_{t+1} = \text{argmax}_a Q^\star(s_{t+1}, a)
 $$
 
 因此我们有
 
 $$
-Q^*(s_t, a_t) = \mathbb{E}_{\tau_t \sim \pi^*} [r_t + \gamma \max_a Q^* (s_{t+1}, a) \mid S_t=s_t, A_t=a_t]
+Q^\star(s_t, a_t) = \mathbb{E}_{\tau_t \sim \pi^\star} [r_t + \gamma \max_a Q^\star (s_{t+1}, a) \mid S_t=s_t, A_t=a_t]
 $$
 
 也即
 
 $$
-Q^*(s_t, a_t) \approx r_t + \gamma \max_a Q^* (s_{t+1}, a)
+Q^\star(s_t, a_t) \approx r_t + \gamma \max_a Q^\star (s_{t+1}, a)
 $$
 
 因此我们只需要将SARSA算法中计算TD Target的部分更改为
@@ -134,11 +134,11 @@ Q-learning看起来非常好，但却存在一个非常严重的问题，被称�
 当这种高估不均匀的时候，可能会导致我们选到不好的动作。
 譬如在某状态$s$下有两个可选动作$a_1$与$a_2$，其最优状态动作价值分别为
 
-$$Q^*(s,a_1)=50, Q^*(s,a_2)=80$$
+$$Q^\star(s,a_1)=50, Q^\star(s,a_2)=80$$
 
 按理说我们应该选择动作$a_2$，但若动作价值存在非均匀的高估，例如我们实际计算得到的动作价值分别为
 
-$$Q^*(s,a_1)=100, Q^*(s,a_2)=90$$
+$$Q^\star(s,a_1)=100, Q^\star(s,a_2)=90$$
 
 那么我们就可能选择动作价值较低的动作$a_1$。
 
@@ -163,7 +163,7 @@ $$
 而我们希望估计的最优动作价值为
 
 $$
-Q^*(s,a) = \max_\pi Q^\pi(s,a) = r + \gamma \max_\pi \mathbb{E} [Q^\pi(s', a')] 
+Q^\star(s,a) = \max_\pi Q^\pi(s,a) = r + \gamma \max_\pi \mathbb{E} [Q^\pi(s', a')] 
 $$
 
 记住这里，我们是在求一个“期望的最大值”。
@@ -173,10 +173,10 @@ $$
     y' = r + \gamma \max_a Q(s',a; \theta) \\
 $$
 
-其中$\max_a Q(s',a; \theta)$是对最优动作价值$Q^*(s',a')$的估计。而根据最优动作价值的定义，
+其中$\max_a Q(s',a; \theta)$是对最优动作价值$Q^\star(s',a')$的估计。而根据最优动作价值的定义，
 
 $$
-Q^*(s',a') = \max_\pi Q^\pi(s',a')
+Q^\star(s',a') = \max_\pi Q^\pi(s',a')
 $$
 
 根据蒙特卡罗方法的思想，$\max_\pi Q^\pi(s',a')$只能作为期望
@@ -212,8 +212,8 @@ $$
 
 > Algorithm parameters: discounted ratio $\gamma \in [0, 1]$, learning rate $\alpha \in (0, 1]$
 > 1. Observe a transition $(s_t, a_t, r_t, s_{t+1})$
-> 2. Select an action $a^*_{t+1}$ of maximum action-values (using $Q(s_{t+1}, a; \theta)$), i.e. $a^*_{t+1} = \text{argmax}_a Q(s_{t+1}, a; \theta)$
-> 3. TD Target: $y_t = r_t + \gamma Q(s_{t+1}, a^*_{t+1}; \theta')$
+> 2. Select an action $a^\star_{t+1}$ of maximum action-values (using $Q(s_{t+1}, a; \theta)$), i.e. $a^\star_{t+1} = \text{argmax}_a Q(s_{t+1}, a; \theta)$
+> 3. TD Target: $y_t = r_t + \gamma Q(s_{t+1}, a^\star_{t+1}; \theta')$
 > 4. Loss (TD Error): $L = \frac{1}{2} (y_t - Q(s_t, a_t; \theta))^2$
 > 5. Update: $\theta \leftarrow \theta - \alpha \frac{\partial L}{\partial \theta}$
 
@@ -221,7 +221,7 @@ $$
 同时，通过$Q(s,a;\theta)$选择的动作并非一定是目标网络价值最大的动作，即有
 
 $$
-Q(s_{t+1}, a^*_{t+1}; \theta') \le \max_a Q(s_{t+1}, a; \theta')
+Q(s_{t+1}, a^\star_{t+1}; \theta') \le \max_a Q(s_{t+1}, a; \theta')
 $$
 
 缓解了maximization带来的高估问题。
