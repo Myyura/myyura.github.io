@@ -216,6 +216,7 @@ $$
 > 3. TD Target: $y_t = r_t + \gamma Q(s_{t+1}, a^\star_{t+1}; \theta')$
 > 4. Loss (TD Error): $L = \frac{1}{2} (y_t - Q(s_t, a_t; \theta))^2$
 > 5. Update: $\theta \leftarrow \theta - \alpha \frac{\partial L}{\partial \theta}$
+> 6. Target Netowrk: From time to time set $\theta' \leftarrow \theta$
 
 通过将动作选择与价值估计分离，能够有效的解决自举带来的高估。
 同时，通过$Q(s,a;\theta)$选择的动作并非一定是目标网络价值最大的动作，即有
