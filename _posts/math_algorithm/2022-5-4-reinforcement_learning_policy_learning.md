@@ -122,11 +122,11 @@ $$Q^{\pi_{\theta}}(s,a) = \mathbb{E}_{\tau \sim \pi_{\theta}}[R(\tau) \mid s_0=s
 那么第一节末尾的梯度可以写为
 
 $$
-\begin{align}
+\begin{align*}
 \frac{\partial V^{\pi_{\theta}}(s)}{\partial \theta} &= \frac{\partial \sum_{a} \pi_{\theta} (a\mid s) Q^{\pi_{\theta}}(s,a)}{\partial \theta} \\
 &= \sum_{a} \pi_{\theta} (a\mid s) \frac{\partial \log \pi_{\theta} (a \mid s)}{\partial \theta} Q^{\pi_{\theta}}(s,a) \\
 &= \mathbb{E}_a [\frac{\partial \log \pi_{\theta} (a \mid s)}{\partial \theta} Q^{\pi_{\theta}}(s,a)]
-\end{align}
+\end{align*}
 $$
 
 中间应用了一个简单的对数技巧，并根据期望的定义，得到了最终的结果。
@@ -229,11 +229,11 @@ $$
 为了简化表示，我们记$\phi(s) = \sum_{a  } \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a)$，即上式的左半部分。
 
 $$
-\begin{align}
+\begin{align*}
 \nabla_\theta V^{\pi_\theta}(s) &= \phi(s) + \sum_{a  } \pi_\theta(a \vert s) \sum_{s'} P(s' \vert s,a) \nabla_\theta V^{\pi_\theta}(s') \\
 &= \phi(s) + \sum_{s'} \sum_a \pi_\theta(a \vert s) P(s' \vert s,a) \nabla_\theta V^{\pi_\theta}(s') \\
 &= \phi(s) + \sum_{s'} \sum_a \pi_\theta(a \vert s) P(s' \vert s,a)\Big [\phi(s') + \sum_{s''} \sum_a \pi_\theta(a' \vert s') P(s'' \vert s',a') \nabla_\theta V^{\pi_\theta}(s'') \Big] \\
-\end{align}
+\end{align*}
 $$
 
 倘若我们将这种展开一直做下去，最终的式子里也就不在包含有含$\nabla_\theta V^{\pi_\theta}(s)$的项，
