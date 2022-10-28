@@ -223,7 +223,7 @@ $$
 \nabla_\theta V^{\pi_\theta}(s) = \sum_{a  } \Big( \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a) + \pi_\theta(a \vert s) \sum_{s'} P(s' \vert s,a) \nabla_\theta V^{\pi_\theta}(s') \Big)
 $$
 
-可以看到这个式子呈现出良好的递归样式---等式左边为$V^{\pi_\theta}(s)$，
+可以看到这个式子呈现出良好的递归样式---等式左边为$\nabla_\theta V^{\pi_\theta}(s)$，
 而右边有$\nabla_\theta V^{\pi_\theta}(s')$。
 我们将右边含有$\nabla_\theta V^{\pi_\theta}(s')$的部分进行递归展开，
 为了简化表示，我们记$\phi(s) = \sum_{a  } \big( \nabla_\theta \pi_\theta(a \vert s) \big)Q^{\pi_\theta}(s, a)$，即上式的左半部分。
